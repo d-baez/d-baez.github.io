@@ -1,3 +1,5 @@
  body {
-     background-image: url('![](../../../../website creations/mesh-gradient-1.jpg)');
+     margin: 0;
+     background: deepskyblue url('![](../../../../website creations/mesh-gradient-1.jpg)');
+     text-align: center;
  }
