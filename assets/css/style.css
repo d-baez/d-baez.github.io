@@ -4,7 +4,12 @@
      object-fit:cover ;
      text-align: center;
      vertical-align: middle;
+     font-family: 'Libre Franklin', sans-serif;
  }
+ h1{
+     font-family: 'IBM Plex Mono', monospace;
+ }
+
  .topnav {
       overflow: hidden;
       background-color: #333;
