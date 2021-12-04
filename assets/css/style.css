@@ -6,8 +6,18 @@
      vertical-align: middle;
      font-family: 'Libre Franklin', sans-serif;
  }
- h1{
+ h1 {
      font-family: 'IBM Plex Mono', monospace;
+
+ }
+ #center-text {
+     left: 0;
+     line-height: 20px;
+     margin-top: -100px;
+     position: absolute;
+     text-align: center;
+     top: 50%;
+     width: 100%;
  }
 
  .topnav {
