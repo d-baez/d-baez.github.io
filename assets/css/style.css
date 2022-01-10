@@ -1,5 +1,5 @@
  body {
-     margin: 0;
+     margin: auto;
      object-fit:cover ;
      text-align: center;
      vertical-align: middle;
@@ -9,15 +9,19 @@
      font-family: 'IBM Plex Mono', monospace;
 
  }
- #center-text {
+ .center-text {
      left: 0;
-     line-height: 35px;
-     margin-top: -100px;
      position: absolute;
-     text-align: center;
      top: 50%;
      width: 100%;
+     margin-bottom: fill;
  }
+ h2 {
+    font-size: 18px;
+    font-family: 'Libre Franklin', sans-serif;
+    padding: 50px 100px 75px 100px;
+ }
+
 
  .topnav {
       overflow: hidden;
@@ -41,4 +45,12 @@
  .topnav a.active {
       background-color: #04AA6D;
       color: white;
+ }
+
+ .footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     text-align: center;
  }
