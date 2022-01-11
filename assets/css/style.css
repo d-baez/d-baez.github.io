@@ -6,6 +6,7 @@
      font-family: 'Libre Franklin', sans-serif;
  }
  h1 {
+     padding-top: 10px;
      font-family: 'IBM Plex Mono', monospace;
 
  }
@@ -19,7 +20,7 @@
  h2 {
     font-size: 18px;
     font-family: 'Libre Franklin', sans-serif;
-    padding: 50px 100px 75px 100px;
+    padding: 35px 100px 75px 100px;
  }
 
 
