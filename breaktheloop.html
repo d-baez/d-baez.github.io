@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>break the loop</title>
+</head>
+<body>
+<h1>Break the Loop!</h1>
+<p id="loop-text"></p>
+<button onclick="stopLoop()">to stop the simulation</button>
+<script>
+    // Define the element to display the loop text
+    var loopTextElement = document.getElementById('loop-text');
+
+    // Set an interval to update the page with the loop text
+    var intervalId = setInterval(function() {
+        // Add the loop text to the page
+        loopTextElement.innerHTML += 'Break the loop! &nbsp';
+
+        // Check if the user has clicked the button to stop the loop
+        if (stopLoopFlag) {
+            // Stop the interval
+            clearInterval(intervalId);
+        }
+    }, 150); // Update the page every 1000 milliseconds (1 second)
+
+    // Define a flag to track whether the loop should stop
+    var stopLoopFlag = false;
+
+    // Define a function to stop the loop
+    function stopLoop() {
+        stopLoopFlag = true;
+    }
+
+</script>
+</body>
+</html>
