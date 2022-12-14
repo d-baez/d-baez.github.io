@@ -6,35 +6,46 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-DW0EE2FEKW');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>break the loop</title>
+    <style>
+        .footer {
+            position: fixed;
+            padding-top: 20px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px; /* space between content and footer */
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
-<h1>Break the Loop!</h1>
+<h1> Perabola!! Hurry Break the Loop!</h1>
 <p id="loop-text"></p>
 <button onclick="stopLoop()">to stop the simulation</button>
 <script>
     // Define the element to display the loop text
-    var loopTextElement = document.getElementById('loop-text');
+    let loopTextElement = document.getElementById('loop-text');
 
     // Set an interval to update the page with the loop text
-    var intervalId = setInterval(function() {
+    let intervalId = setInterval(function() {
         // Add the loop text to the page
-        loopTextElement.innerHTML += 'Break the loop! &nbsp';
+        loopTextElement.innerHTML += 'Break the loop! &emsp; ';
 
         // Check if the user has clicked the button to stop the loop
         if (stopLoopFlag) {
             // Stop the interval
             clearInterval(intervalId);
         }
-    }, 150); // Update the page every 1000 milliseconds (1 second)
+    }, 10); // Update the page every 1000 milliseconds (1 second)
 
     // Define a flag to track whether the loop should stop
-    var stopLoopFlag = false;
+    let stopLoopFlag = false;
 
     // Define a function to stop the loop
     function stopLoop() {
@@ -43,4 +54,7 @@
 
 </script>
 </body>
+<footer class="footer">
+    <small>&copy; Copyright 2022, Daniel Baez</small>
+</footer>
 </html>
