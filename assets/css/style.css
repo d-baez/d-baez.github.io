@@ -4,6 +4,7 @@
      text-align: center;
      vertical-align: middle;
      font-family: 'Libre Franklin', sans-serif;
+
  }
  h1 {
      padding-top: 10px;
@@ -19,7 +20,6 @@
  }
  h2 {
     font-size: 18px;
-
     padding: 35px 100px 75px 100px;
  }
 
@@ -49,8 +49,20 @@
  }
  .box{
      display: flex;
+     justify-content: stretch;
+     justify-items: center;
+     justify-self: center ;
      flex-direction: row;
      align-items: center;
+     margin: auto;
+     padding-bottom: 10px;
+ }
+
+ .column{
+     display: flex;
+     flex-direction: column;
+     flex-basis: auto;
+     flex: auto;
  }
 
  .footer {
