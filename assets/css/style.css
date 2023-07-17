@@ -17,11 +17,11 @@
      position: absolute;
      top: 50%;
      width: 100%;
-     margin-bottom: fill;
+     margin-bottom: auto;
  }
  h2 {
     font-size: 18px;
-    padding: 35px 100px 75px 100px;
+    padding: 35px 100px 35px 100px;
  }
 
 
@@ -61,12 +61,16 @@
  .box2{
      display: flex;
      justify-content: center;
-     justify-items: center;
+     justify-items: auto;
      justify-self: center ;
      flex-direction: row;
      align-items: center;
      margin: 0 auto;
      padding-bottom: 10px;
+
+ }
+ .contentbox2{
+     padding: 10px;
  }
  .grid {
      display: grid;
