@@ -1,5 +1,6 @@
  body {
-     margin: auto;
+     margin: 0;
+     padding: 0;
      object-fit:cover ;
      text-align: center;
      vertical-align: middle;
@@ -54,8 +55,27 @@
      justify-self: center ;
      flex-direction: row;
      align-items: center;
-     margin: auto;
+     margin: 0 auto;
      padding-bottom: 10px;
+ }
+ .box2{
+     display: flex;
+     justify-content: center;
+     justify-items: center;
+     justify-self: center ;
+     flex-direction: row;
+     align-items: center;
+     margin: 0 auto;
+     padding-bottom: 10px;
+ }
+ .grid {
+     display: grid;
+     grid-auto-columns: 1fr;
+     grid-template-columns: 1fr 1fr;
+     grid-row-gap: 16px;
+     grid-column-gap: 16px;
+     justify-content: center;
+     align-content: center;
  }
 
  .column{
@@ -70,5 +90,6 @@
      left: 0;
      bottom: 0;
      width: 100%;
+     padding: 10px;
      text-align: center;
  }
