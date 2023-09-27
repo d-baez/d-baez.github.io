@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DW0EE2FEKW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DW0EE2FEKW');
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .footer {
+            position: fixed;
+            padding-top: 20px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px; /* space between content and footer */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favorite Song Form</title>
+
+    <body>
+    <h1>whats your favorite song(s) to sing?</h1>
+    <p>love to know your favorite song. fill out the form below:</p>
+
+        <form action="https://formspree.io/f/mbjvprpn" method="POST">
+        <label for="favoriteSong">favorite song(s):</label>
+        <input type="text" id="favoriteSong" name="favoriteSong" placeholder="ex:count contessa by Azealia Banks" required>
+
+    <br>
+        <label for="name">your name:</label>
+            <input type="text" id="name" name="user-name" placeholder="steve m" required>
+    <br>
+    <input type="submit" value="Submit">
+        </form>
+</body>
+
+</body>
+<footer class="footer">
+    <small>&copy; Copyright 2023, Daniel Baez</small>
+</footer>
+</html>
