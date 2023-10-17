@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RSVP for My 21st Birthday</title>
+</head>
+<body>
+    <h1>RSVP for My 21st Birthday</h1>
+    <p>Please join me in celebrating my 21st birthday!</p>
+
+    <form>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="attendance">Will you attend?</label>
+        <select id="attendance" name="attendance">
+            <option value="yes">Yes, I'll be there!</option>
+            <option value="no">Sorry, I can't make it.</option>
+        </select><br><br>
+
+        <label for="guests">Number of guests (if any):</label>
+        <input type="number" id="guests" name="guests" min="0"><br><br>
+
+        <label for="message">Leave a message:</label>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="RSVP">
+    </form>
+</body>
+</html>
