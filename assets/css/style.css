@@ -176,3 +176,12 @@
      letter-spacing: 0;
      line-height: normal;
  }
+
+ @font-face {
+     font-family: "Trap-ExtraBold"; src: url("/assets/css/Trap-ExtraBold.otf");
+ }
+
+ .crea-section.box {
+     padding: 10px;
+     background-color: #454444;
+ }
