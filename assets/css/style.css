@@ -72,22 +72,6 @@
  .contentbox2{
      padding: 10px;
  }
- .grid {
-     display: grid;
-     grid-auto-columns: 1fr;
-     grid-template-columns: 1fr 1fr;
-     grid-row-gap: 16px;
-     grid-column-gap: 16px;
-     justify-content: center;
-     align-content: center;
- }
-
- .column{
-     display: flex;
-     flex-direction: column;
-     flex-basis: auto;
-     flex: auto;
- }
 
  .footer {
      position: fixed;
@@ -96,4 +80,90 @@
      width: 100%;
      padding: 10px;
      text-align: center;
+     /*todo update all footer year*/
+ }
+
+ .name-logo{
+     display: flex;
+     flex-direction: column;
+     font-family: "Trap-ExtraBold", serif;
+     color: var(--variable-collection-logo-color);
+     font-weight: 800;
+     font-size: 85px;
+     text-align: center;
+     position: relative;
+
+ }
+
+
+ .crea-section {
+     position: fixed;
+     width: 100%;
+     height: 924px;
+     top: 0;
+     left: 0;
+ }
+
+ .overlap {
+     position: relative;
+     width: 100%;
+     height: 924px;
+     background-color: #454444;
+ }
+
+ .temp-logo {
+     position: absolute;
+     width: 814px;
+     height: 351px;
+     top: 271px;
+     left: 148px;
+ }
+
+ .overlap-group {
+     position: relative;
+     width: 100%;
+     height: 351px;
+     background-color: #ed9717;
+     border-radius: 42px;
+ }
+
+ .text-wrapper {
+     width: 551px;
+     height: 188px;
+     top: 81px;
+     left: 50%;
+     transform: translateX(-50%);
+     font-family: "Trap-ExtraBold", Helvetica, serif;
+     font-weight: 800;
+     color: var(--variable-collection-logo-color);
+     font-size: 85px;
+     text-align: center;
+     position: absolute;
+     letter-spacing: 0;
+     line-height: normal;
+ }
+
+ .crea-lo-que-tu {
+     width: 483px;
+     top: 162px;
+     left: 50%;
+     transform: translateX(-50%);
+     font-family: "SF Pro Text-RegularItalic", Helvetica;
+     /*todo upload ^ font*/
+     font-weight: 400;
+     font-style: italic;
+     color: #d9d9d9;
+     font-size: 32px;
+     position: absolute;
+     letter-spacing: 0;
+     line-height: normal;
+ }
+
+ @font-face {
+     font-family: "Trap-ExtraBold"; src: url("/assets/css/Trap-ExtraBold.otf");
+ }
+
+ .crea-section.box {
+     padding: 10px;
+     background-color: #454444;
  }
