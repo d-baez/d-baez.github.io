@@ -180,6 +180,10 @@
  @font-face {
      font-family: "Trap-ExtraBold"; src: url("/assets/css/Trap-ExtraBold.otf");
  }
+ @font-face{
+     font-family: "SF Pro Text-RegularItalic"; src: url("/assests/css/");
+     /*todo upload font file to css folder*/
+ }
 
  .crea-section.box {
      padding: 10px;
