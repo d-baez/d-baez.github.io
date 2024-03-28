@@ -143,12 +143,13 @@
      line-height: normal;
  }
 
+
  .crea-lo-que-tu {
      width: 483px;
      top: 162px;
      left: 50%;
      transform: translateX(-50%);
-     font-family: "SF Pro Text-RegularItalic", Helvetica;
+     font-family: "SF Pro Text-RegularItalic", Helvetica, serif;
      /*todo upload ^ font*/
      font-weight: 400;
      font-style: italic;
@@ -161,6 +162,10 @@
 
  @font-face {
      font-family: "Trap-ExtraBold"; src: url("/assets/css/Trap-ExtraBold.otf");
+ }
+ @font-face{
+     font-family: "SF Pro Text-RegularItalic"; src: url("/assests/css/");
+     /*todo upload font file to css folder*/
  }
 
  .crea-section.box {
