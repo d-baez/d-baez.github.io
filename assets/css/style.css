@@ -61,6 +61,7 @@
  .box2{
      display: flex;
      justify-content: center;
+     flex-wrap: wrap;
      justify-items: auto;
      justify-self: center ;
      flex-direction: row;
@@ -90,10 +91,11 @@
  }
 
  .footer {
-     position:fixed;
+     /* position:fixed;
+       width: 100%;*/
      left: 0;
      bottom: 0;
-     width: 100%;
+
      padding: 10px;
      text-align: center;
  }
