@@ -61,6 +61,7 @@
  .box2{
      display: flex;
      justify-content: center;
+     flex-wrap: wrap;
      justify-items: auto;
      justify-self: center ;
      flex-direction: row;

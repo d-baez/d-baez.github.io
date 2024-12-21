@@ -2,3 +2,44 @@
     --variable-collection-logo-color: rgba(136, 47, 177, 1);
 }
 
+
+/* General reset and box styling */
+#crea-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Optional background for the section */
+    font-family: Arial, sans-serif;
+}
+
+/* Box containing the paragraphs */
+.box3 {
+    width: 90%;
+    max-width: 600px;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Ensure a distinct background */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Style for paragraphs with rounded corner boxes */
+.box3 p {
+    background-color: #ffa500; /* Orange background for the boxes */
+    color: #4b0082; /* Purple text color */
+    padding: 15px;
+    border-radius: 15px; /* Rounded corners */
+    margin-bottom: 20px; /* Space between paragraphs */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional box shadow for depth */
+    text-align: justify; /* Align text for readability */
+}
+
+/* Name-logo specific paragraph */
+.name-logo p {
+    font-family: 'trap-Bold', ui-serif; /* Bold font for emphasis */
+    text-align: center;
+    font-size: 1.5em;
+}
