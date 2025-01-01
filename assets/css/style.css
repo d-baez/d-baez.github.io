@@ -86,7 +86,6 @@
  .column{
      display: flex;
      flex-direction: column;
-     flex-basis: auto;
      flex: auto;
  }
 
@@ -107,7 +106,7 @@
      font-family: "Trap-ExtraBold", serif;
      color: var(--variable-collection-logo-color);
      font-weight: 800;
-     font-size: 85px;
+     font-size: 40px;
      text-align: center;
      position: relative;
 
