@@ -4,7 +4,7 @@
      object-fit:cover ;
      text-align: center;
      vertical-align: middle;
-     font-family: 'Libre Franklin', sans-serif;
+     font-family: 'Libre Franklin', sans-serif ;
 
  }
  h1 {
@@ -192,4 +192,21 @@
 
  .embed-container{
      padding: 10px;
+ }
+
+ /* <weight>: Use a value from 100 to 900*/
+ /* <uniquifier>: Use a unique and descriptive class name*/
+
+ .museomoderno-100 {
+    font-family: "MuseoModerno", serif;
+    font-optical-sizing: auto;
+    font-weight:100;
+    font-style: normal;
+}
+ .museomoderno-300 {
+     font-family: "MuseoModerno", serif;
+     font-optical-sizing: auto;
+     font-weight:500;
+     font-style: italic;
+
  }
