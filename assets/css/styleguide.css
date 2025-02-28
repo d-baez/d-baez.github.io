@@ -11,7 +11,7 @@
     padding-left: 20px;
     padding-right: 20px;
     background-color: #f9f9f9; /* Optional background for the section */
-    font-family: Arial, sans-serif;
+
 }
 
 /* Box containing the paragraphs */
@@ -19,7 +19,7 @@
     width: 90%;
     max-width: 600px;
     align-items: center;
-    margin: 20px auto;
+    margin: 12px auto;
     padding: 20px;
     background-color: #fff; /* Ensure a distinct background */
     border-radius: 15px;
@@ -40,7 +40,7 @@
 
 /* Name-logo specific paragraph */
 .name-logo p {
-    font-family: 'trap-Bold', ui-serif; /* Bold font for emphasis */
+    /*font-family: 'trap-Bold', ui-serif; !* Bold font for emphasis *!*/
     text-align: center;
     font-size: 1.5em;
 }
