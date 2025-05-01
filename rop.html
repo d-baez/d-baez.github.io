@@ -2,10 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DW0EE2FEKW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DW0EE2FEKW');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rites of Passage Song Suggestions">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/favicon.ico">
     <title>Rites of Passage Song Suggestions</title>
-    
+
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/css/styleguide.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@1&family=IBM+Plex+Sans&family=Libre+Franklin:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <!-- update metta data -->
     <style>
         body {
@@ -50,11 +70,11 @@
 
 
 
-<nav>
+<nav class="topnav">
     <!-- update with correct links -->
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="https://d-baez.github.io/">home</a>
+    <a href="https://d-baez.github.io/projects">projects</a>
+    <a href="https://d-baez.github.io/about">about</a>
 </nav>
 
 <header>
@@ -63,11 +83,30 @@
 
 
 <main>
-    <h2>We Want Your Song Suggestions!</h2>
-    <p>Let us know what songs you'd love to hear at the Rites of Passage event. Submit your favorite tracks, and we'll consider them for the playlist.</p>
+    <h2>i want your song suggestions!</h2>
+    <p>let me know what songs you'd love to hear at the Rites of Passage Receptions event. Submit your favorite tracks, and we'll consider them for the playlist.</p>
     
     <div class="suggestion-box">
-        <p><strong>Coming Soon:</strong> A form to submit your song suggestions will be available here!</p>
+<!--        <p><strong>Coming Soon:</strong> A form to submit your song suggestions will be available here!</p>-->
+        <form
+                action="https://formspree.io/f/xblogrqb"
+                method="POST"
+        >
+
+            <label>
+                Song title:
+                <input type="text" name="song" required>
+            </label>
+
+            <br>
+
+            <label>
+                Artist name:
+                <input type="text" name="artist" required>
+            </label>
+
+            <button type="submit">Send</button>
+        </form>
     </div>
 </main>
 
