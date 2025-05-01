@@ -18,7 +18,7 @@
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="assets/images/favicon.ico">
     <title>Rites of Passage Song Suggestions</title>
-    
+
     <!-- update metta data -->
     <style>
         body {
@@ -63,11 +63,11 @@
 
 
 
-<nav>
+<nav class="topnav">
     <!-- update with correct links -->
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="https://d-baez.github.io/">home</a>
+    <a href="https://d-baez.github.io/projects">projects</a>
+    <a href="https://d-baez.github.io/about">about</a>
 </nav>
 
 <header>
@@ -76,11 +76,30 @@
 
 
 <main>
-    <h2>We Want Your Song Suggestions!</h2>
-    <p>Let us know what songs you'd love to hear at the Rites of Passage event. Submit your favorite tracks, and we'll consider them for the playlist.</p>
+    <h2>i want your song suggestions!</h2>
+    <p>let me know what songs you'd love to hear at the Rites of Passage Receptions event. Submit your favorite tracks, and we'll consider them for the playlist.</p>
     
     <div class="suggestion-box">
-        <p><strong>Coming Soon:</strong> A form to submit your song suggestions will be available here!</p>
+<!--        <p><strong>Coming Soon:</strong> A form to submit your song suggestions will be available here!</p>-->
+        <form
+                action="https://formspree.io/f/xblogrqb"
+                method="POST"
+        >
+
+            <label>
+                Song title:
+                <input type="text" name="song" required>
+            </label>
+
+            <br>
+
+            <label>
+                Artist name:
+                <input type="text" name="artist" required>
+            </label>
+
+            <button type="submit">Send</button>
+        </form>
     </div>
 </main>
 
