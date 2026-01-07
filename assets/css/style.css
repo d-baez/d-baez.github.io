@@ -11,6 +11,12 @@
      padding-top: 10px;
      font-family: 'IBM Plex Mono', monospace;
 
+
+ h2 {
+    font-size: 18px;
+    padding: 35px;
+ }
+
  }
  .center-text {
      left: 0;
@@ -19,17 +25,13 @@
      width: 100%;
      margin-bottom: auto;
  }
- h2 {
-    font-size: 18px;
-    padding: 35px;
- }
-
 
  .topnav {
      overflow: hidden;
      background-color: #333;
  }
 
+ /* Style the links inside the navigation bar */
  .topnav a {
      float: left;
      color: #f2f2f2;
@@ -48,6 +50,8 @@
      background-color: #04AA6D;
      color: white;
  }
+
+
  .box{
      display: flex;
      justify-content: stretch;
@@ -69,7 +73,6 @@
      display: flex;
      justify-content: center;
      flex-wrap: wrap;
-     justify-items: auto;
      justify-self: center ;
      flex-direction: row;
      align-items: center;
@@ -193,18 +196,7 @@
      line-height: normal;
  }
 
- @font-face {
-     font-family: "Trap-ExtraBold"; src: url("/assets/css/Trap-ExtraBold.otf");
 
- }
-
-@font-face {
-    font-family:"trap-bold"; src: url("/assets/css/Trap-Bold.otf");
-}
- @font-face{
-     font-family: "SF Pro Text-RegularItalic"; src: url("/assests/css/");
-     /*todo upload font file to css folder*/
- }
 
  .crea-section.box {
      padding: 10px;
@@ -215,19 +207,39 @@
      padding: 10px;
  }
 
- /* <weight>: Use a value from 100 to 900*/
- /* <uniquifier>: Use a unique and descriptive class name*/
 
- .museomoderno-100 {
-    font-family: "MuseoModerno", serif;
-    font-optical-sizing: auto;
-    font-weight:100;
-    font-style: normal;
-}
- .museomoderno-300 {
-     font-family: "MuseoModerno", serif;
-     font-optical-sizing: auto;
-     font-weight:500;
-     font-style: italic;
 
+ .video-responsive {
+     position: relative;
+     padding-bottom: 56.25%; /* 16:9 aspect ratio */
+     padding-top: 25px;
+     height: 0;
+     overflow: hidden;
+     max-width: 950px;
+     margin: 0 auto;
+ }
+ .video-responsive iframe {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+ .past-events-images {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 1rem;
+     margin-top: 0.5rem;
+ }
+
+ .past-events-images img {
+     flex: 1 1 250px;
+     max-width: 100%;
+     height: auto;
+ }
+
+ .past-event-image {
+     max-width: 100%;
+     height: auto;
+     display: block;
  }

@@ -3,6 +3,36 @@
 }
 
 
+
+/* fonts */
+
+/* <weight>: Use a value from 100 to 900*/
+/* <uniquifier>: Use a unique and descriptive class name*/
+
+.museomoderno-100 {
+    font-family: "MuseoModerno", serif;
+    font-optical-sizing: auto;
+    font-weight:100;
+    font-style: normal;
+}
+.museomoderno-300 {
+    font-family: "MuseoModerno", serif;
+    font-optical-sizing: auto;
+    font-weight:500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Trap-ExtraBold"; src: url("/assets/css/Trap-ExtraBold.otf");
+
+}
+
+@font-face {
+    font-family:"trap-bold"; src: url("/assets/css/Trap-Bold.otf");
+}
+@font-face{
+    font-family: "SF Pro Text-RegularItalic"; src: url("/assests/css/SF-Pro-Text-RegularItalic.otf");
+}
 /* General reset and box styling */
 #crea-section {
     display: flex;
