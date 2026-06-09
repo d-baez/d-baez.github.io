@@ -18,7 +18,7 @@
 .museomoderno-300 {
     font-family: "MuseoModerno", serif;
     font-optical-sizing: auto;
-    font-weight:500;
+    font-weight:300;
     font-style: italic;
 }
 
@@ -31,7 +31,7 @@
     font-family:"trap-bold"; src: url("/assets/css/Trap-Bold.otf");
 }
 @font-face{
-    font-family: "SF Pro Text-RegularItalic"; src: url("/assests/css/SF-Pro-Text-RegularItalic.otf");
+    font-family: "SF Pro Text-RegularItalic"; src: url("/assets/css/SF-Pro-Text-RegularItalic.otf");
 }
 /* General reset and box styling */
 #crea-section {

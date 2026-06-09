@@ -10,13 +10,11 @@
  h1 {
      padding-top: 10px;
      font-family: 'IBM Plex Mono', monospace;
-
+ }
 
  h2 {
     font-size: 18px;
     padding: 35px;
- }
-
  }
  .center-text {
      left: 0;
