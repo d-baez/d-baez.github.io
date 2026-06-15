@@ -14,7 +14,7 @@
 
  h2 {
     font-size: 18px;
-    padding: 35px;
+    padding: clamp(1rem, 5vw, 35px);
  }
  .center-text {
      left: 0;
@@ -25,13 +25,13 @@
  }
 
  .topnav {
-     overflow: hidden;
+     display: flex;
+     flex-wrap: wrap;
      background-color: #333;
  }
 
  /* Style the links inside the navigation bar */
  .topnav a {
-     float: left;
      color: #f2f2f2;
      text-align: center;
      padding: 14px 16px;
@@ -240,4 +240,49 @@
      max-width: 100%;
      height: auto;
      display: block;
+ }
+
+ /* ── Mobile ────────────────────────────────────────────── */
+ @media (max-width: 640px) {
+
+     /* Nav: stack links full-width on very small screens */
+     .topnav {
+         flex-direction: column;
+     }
+     .topnav a {
+         text-align: left;
+         padding: 12px 16px;
+         border-bottom: 1px solid #444;
+     }
+
+     /* Projects: stack image + text vertically */
+     .box {
+         flex-direction: column;
+         padding: 1rem;
+     }
+     .box img {
+         width: 100% !important;
+         max-width: 100%;
+     }
+     .box > div[style*="padding-left"],
+     .box > div[style*="padding-right"] {
+         padding-left: 0 !important;
+         padding-right: 0 !important;
+     }
+
+     /* Iframes (Gravatar card on about page) */
+     iframe {
+         width: 100% !important;
+         max-width: 100%;
+         height: auto;
+         min-height: 375px;
+     }
+
+     /* General readability */
+     h1 {
+         font-size: 1.5rem;
+     }
+     h2 {
+         font-size: 16px;
+     }
  }

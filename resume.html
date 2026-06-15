@@ -1,38 +1,280 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:height="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>resume</title>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Daniel Báez — Resume</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #111;
+            background: #f5f5f5;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        /* Header */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .resume-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .resume-header .contact {
+            margin-top: 0.4rem;
+            font-size: 13px;
+            color: #333;
+        }
+        .resume-header .contact a {
+            color: #333;
+            text-decoration: underline;
+        }
+        .resume-header .contact span {
+            margin: 0 0.3rem;
+        }
+
+        /* Section */
+        section {
+            margin-top: 1.2rem;
+        }
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1.5px solid #111;
+            padding-bottom: 2px;
+            margin-bottom: 0.7rem;
+        }
+
+        /* Entry rows */
+        .entry {
+            margin-bottom: 0.9rem;
+        }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.2rem;
+        }
+        .entry-title {
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .entry-location {
+            font-size: 13px;
+            color: #444;
+            white-space: nowrap;
+        }
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 0.3rem;
+        }
+        .entry-sub .org { font-style: italic; }
+
+        ul.bullets {
+            padding-left: 1.3rem;
+            margin-top: 0.2rem;
+        }
+        ul.bullets li {
+            margin-bottom: 0.25rem;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Projects */
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+        .project-list li {
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.35rem;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .project-list li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+        }
+        .project-list li strong {
+            font-weight: 700;
+        }
+
+        /* Skills */
+        .skills-list {
+            font-size: 13px;
+            color: #222;
+        }
+
+        /* Nav link back */
+        .back-nav {
+            max-width: 800px;
+            margin: 0 auto 0.8rem;
+            font-size: 13px;
+        }
+        .back-nav a {
+            color: #555;
+            text-decoration: none;
+        }
+        .back-nav a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .page { padding: 1.5rem 1.2rem; }
+            .entry-header, .entry-sub { flex-direction: column; }
+            .entry-location, .entry-sub .date { text-align: left; }
+        }
+    </style>
 </head>
 <body>
-<div class="ResumeWebpage" style="width: 1280px; height: 1920px; position: relative">
-    <div class="Background" style="width: 1280px; height: 1920px; left: 0px; top: 0px; position: absolute; background: #D9D9D9"></div>
-    <div class="Experience" style="width: 1126px; height: 968px; left: 92px; top: 243px; position: absolute">
-        <div class="CommunicationsIntern" style="width: 1125px; height: 305px; left: 1px; top: 663px; position: absolute">
-            <div class="MayAugust2023" style="width: 255px; height: 44.04px; left: 870px; top: 0.34px; position: absolute; color: black; font-size: 28px; font-family: Inter; font-weight: 400; word-wrap: break-word">May - August 2023</div>
-            <div class="TookOrdersFromMembersAndGuestsAroundThePoolsideBarAndPavilionSectionsWith10PeopleAtATimeCoordinatedWithTwoKitchensToEnsureFoodWasAvailableForMembersHandledBeverageCartOnCourseGroundsProvidingGolfersWereSatisfiedWithSnacksAndDrinksPreparedASelectionOfMixedDrinksAndBeveragesForPoolMembersAndGolfersSummer202120222023" style="width: 1096px; height: 233px; left: 0px; top: 72px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Took orders from members and guests around the poolside, bar, and pavilion sections with 10+ people at a time<br/>Coordinated with two kitchens to ensure food was available for members<br/>Handled beverage cart on course grounds providing golfers were satisfied with snacks and drinks<br/>Prepared a selection of mixed drinks and beverages for pool members and golfers<br/>Summer 2021, 2022, 2023</div>
-            <div class="CommunicationsIntern" style="width: 324px; height: 33px; left: 0px; top: 0px; position: absolute; color: black; font-size: 28px; font-family: Inter; font-weight: 400; word-wrap: break-word">Communications intern</div>
-            <div class="ChildernDefenseFundNewYorkCity" style="width: 547px; height: 39px; left: 1px; top: 33px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 400; word-wrap: break-word">Children's Defense Fund | New York City</div>
+
+<div class="back-nav"><a href="https://d-baez.github.io/">← home</a></div>
+
+<div class="page">
+
+    <header class="resume-header">
+        <h1>Daniel Báez</h1>
+        <div class="contact">
+<!--            <span>●</span>-->
+            <a href="mailto:daniel.baez(at)rutgers.edu">daniel.baez(at)rutgers.edu</a>
+            <span>●</span>
+            <a href="https://linkedin.com/in/-danielbaez/" target="_blank">linkedin.com/in/-danielbaez/</a>
+            <span>●</span>
+            <a href="https://d-baez.github.io" target="_blank">d-baez.github.io</a>
         </div>
-        <div class="CommunicationsIntern" style="width: 1125px; height: 305px; left: 0px; top: 358px; position: absolute">
-            <div class="SeptemberJanuary2023" style="width: 360px; height: 44px; left: 765px; top: 0px; position: absolute; color: black; font-size: 28px; font-family: Inter; font-weight: 400; word-wrap: break-word">September - January 2023</div>
-            <div class="TookOrdersFromMembersAndGuestsAroundThePoolsideBarAndPavilionSectionsWith10PeopleAtATimeCoordinatedWithTwoKitchensToEnsureFoodWasAvailableForMembersHandledBeverageCartOnCourseGroundsProvidingGolfersWereSatisfiedWithSnacksAndDrinksPreparedASelectionOfMixedDrinksAndBeveragesForPoolMembersAndGolfersSummer202120222023" style="width: 1096px; height: 233px; left: 0px; top: 72px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Took orders from members and guests around the poolside, bar, and pavilion sections with 10+ people at a time<br/>Coordinated with two kitchens to ensure food was available for members<br/>Handled beverage cart on course grounds providing golfers were satisfied with snacks and drinks<br/>Prepared a selection of mixed drinks and beverages for pool members and golfers<br/>Summer 2021, 2022, 2023</div>
-            <div class="CommunicationsIntern" style="width: 325px; height: 33px; left: 0px; top: 0px; position: absolute; color: black; font-size: 28px; font-family: Inter; font-weight: 400; word-wrap: break-word">Communications intern</div>
-            <div class="MontclairDemocratsMontclairNj" style="width: 462px; height: 29px; left: 1px; top: 33px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 400; word-wrap: break-word">Montclair Democrats | Montclair, NJ</div>
+    </header>
+
+    <!-- Education -->
+    <section>
+        <div class="section-title">Education</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Rutgers University, School of Engineering</span>
+                <span class="entry-location">New Brunswick, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span>Bachelor of Science in Electrical and Computer Engineering; Minor in Leadership Skills</span>
+                <span class="date">August 2026</span>
+            </div>
+            <div style="font-size:13px;"><strong>Extra-curriculars:</strong> Community Engagement Intern at Zimmerli Art Museum and Society of Hispanic Engineers</div>
         </div>
-        <div class="Bartender" style="width: 1125px; height: 305px; left: 0px; top: 53px; position: absolute">
-            <div class="MayAugust2023" style="width: 255px; height: 44.04px; left: 870px; top: 0.34px; position: absolute; color: black; font-size: 28px; font-family: Inter; font-weight: 400; word-wrap: break-word">May - August 2023</div>
-            <div class="TookOrdersFromMembersAndGuestsAroundThePoolsideBarAndPavilionSectionsWith10PeopleAtATimeCoordinatedWithTwoKitchensToEnsureFoodWasAvailableForMembersHandledBeverageCartOnCourseGroundsProvidingGolfersWereSatisfiedWithSnacksAndDrinksPreparedASelectionOfMixedDrinksAndBeveragesForPoolMembersAndGolfersSummer202120222023" style="width: 1096px; height: 233px; left: 0px; top: 72px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Took orders from members and guests around the poolside, bar, and pavilion sections with 10+ people at a time<br/>Coordinated with two kitchens to ensure food was available for members<br/>Handled beverage cart on course grounds providing golfers were satisfied with snacks and drinks<br/>Prepared a selection of mixed drinks and beverages for pool members and golfers<br/>Summer 2021, 2022, 2023</div>
-            <div class="CrestmontCountryClubWestOrangeNj" style="width: 508px; height: 39px; left: 1px; top: 33px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 400; word-wrap: break-word">Crestmont country club | west orange, NJ</div>
-            <div class="BartenderServer" style="width: 251px; height: 33px; left: 0px; top: 0px; position: absolute; color: black; font-size: 28px; font-family: Inter; font-weight: 400; word-wrap: break-word">Bartender/Server </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+        <div class="section-title">Work Experience</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">IT HelpDesk Assistant</span>
+                <span class="entry-location">New Brunswick, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Rutgers School of Communications &amp; Information</span>
+                <span class="date">December 2023 – Present</span>
+            </div>
+            <ul class="bullets">
+                <li>Diagnosed and addressed a wide range of hardware, software, and network technical issues for an average of 25 users weekly, developing standardized troubleshooting protocols that reduced average resolution time by 30% and contributed to overall team efficiency improvements.</li>
+                <li>Oversaw IT procurement and inventory management, ensuring compliance with asset life cycle management best practices, which led to a 25% reduction in IT asset downtime and improved resources in and out of the classroom.</li>
+                <li>Offered IT Support to an array of top executive faculty, staff, doctoral, and undergraduate students across the university.</li>
+            </ul>
         </div>
-        <div class="Experience" style="width: 266px; height: 53.14px; left: 0px; top: 0px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 400; word-wrap: break-word">EXPERIENCE </div>
-    </div>
-    <div class="TitleName" style="width: 1058px; height: 176px; left: 112px; top: 46px; position: absolute">
-        <div class="2432284NewBrunswickNjDanbaez02GmailComLinkedinComInDanielbaez" style="width: 1058px; height: 34px; left: 0px; top: 142px; position: absolute; text-align: center"><span style="color: #757575; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">862-243-2284 •  New Brunswick, NJ ● </span><span style="color: #757575; font-size: 20px; font-family: Inter; font-weight: 400; text-decoration: underline; word-wrap: break-word">danbaez02@gmail.com</span><span style="color: #757575; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word"> ● </span><span style="color: #757575; font-size: 20px; font-family: Inter; font-weight: 400; text-decoration: underline; word-wrap: break-word">linkedin.com/in/-danielbaez/</span></div>
-        <div class="DanielBaez" style="width: 672px; height: 105px; left: 192px; top: 0px; position: absolute; text-align: center; color: #757575; font-size: 96px; font-family: Inter; font-weight: 400; word-wrap: break-word">Daniel Baez</div>
-    </div>
+    </section>
+
+    <!-- Internship Experience -->
+    <section>
+        <div class="section-title">Internship Experience</div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">President</span>
+                <span class="entry-location">New Brunswick, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Raíces Ecuatorianas en América</span>
+                <span class="date">May 2025 – May 2026</span>
+            </div>
+            <ul class="bullets">
+                <li>Led planning and execution of multi-level programs involving a 15-person executive team, coordinating with external partners and university admin while managing timeline, logistics, and deliverables across concurrent initiatives.</li>
+                <li>Oversaw strategic planning, budgeting, and event logistics, ensuring alignment with institutional policies and the organization's long-term mission.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Public Relations Chair</span>
+                <span class="entry-location"></span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Raíces Ecuatorianas en América</span>
+                <span class="date">May 2024 – May 2025</span>
+            </div>
+            <ul class="bullets">
+                <li>Served as the primary spokesperson and representative for Raíces Ecuatorianas en América, advocating for the engagement of Latine students and cultural awareness within the Rutgers community.</li>
+                <li>Increased organizational membership by 85% through the launch of new initiatives like the REA's career panel and Arte de los Andes, with support from the Zimmerli Art Museum at Rutgers, while strengthening visibility and reach across campus.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Communications Intern</span>
+                <span class="entry-location">Montclair, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Montclair Democrats</span>
+                <span class="date">September 2020 – January 2021</span>
+            </div>
+            <ul class="bullets">
+                <li>Trained 25+ people on how to perform phone banking strategies and facilitate their engagement with the campaign.</li>
+                <li>Conducted a thorough assessment of social media platforms to enhance content reach and engagement, resulting in a more targeted and effective online presence.</li>
+                <li>Collaborated with the communications team to craft and distribute persuasive messaging that resonated with the intended audience, contributing to increased awareness and support for the organization's initiatives.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+        <div class="section-title">Projects</div>
+        <ul class="project-list">
+            <li><strong>Watermelon Ripeness Classifier</strong> — Designed and deployed an end-to-end computer vision pipeline on a Raspberry Pi 5 with Hailo-8L NPU to classify watermelon ripeness in real time; trained a custom CNN on a 2,700+ image dataset.</li>
+            <li><strong>Prototype AI Scheduling Assistant (Calendario)</strong> — Designed and prototyped an AI-powered personal assistant integrating with Google Calendar APIs to interpret natural language queries, surface relevant schedule information (today, tomorrow, upcoming events), and streamline calendar management through conversational automation.</li>
+            <li><strong>IoT Home Automation Bridge</strong> — Configure and manage a Raspberry Pi-based home bridge that connects multiple IoT devices to Apple HomeKit, enabling centralized control and home automation.</li>
+        </ul>
+    </section>
+
+    <!-- Skills -->
+    <section>
+        <div class="section-title">Skills</div>
+        <div class="skills-list">
+            Adobe Suite | CPR | Figma | GitHub | ServiceNow | Spanish | HTML | iOS | macOS | MATLAB | Microsoft 365 | Python | WordPress | Windows
+        </div>
+    </section>
+
 </div>
 </body>
 </html>
