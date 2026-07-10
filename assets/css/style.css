@@ -194,6 +194,14 @@
      line-height: normal;
  }
 
+ .box3 p.crea-description {
+     font-family: "SF Pro Text-RegularItalic", Helvetica, serif;
+     font-weight: 400;
+     font-style: italic;
+     color: var(--variable-collection-logo-color);
+     font-size: 32px;
+ }
+
 
 
  .crea-section.box {
