@@ -239,6 +239,13 @@
      display: block;
  }
 
+ @media (min-width: 641px) {
+     .past-event-image-lg {
+         max-width: 480px;
+         height: 420px;
+     }
+ }
+
  /* ── Mobile ────────────────────────────────────────────── */
  @media (max-width: 640px) {
 
