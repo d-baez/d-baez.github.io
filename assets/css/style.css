@@ -194,12 +194,13 @@
      line-height: normal;
  }
 
- .box3 p.crea-description {
+ .crea-description {
      font-family: "SF Pro Text-RegularItalic", Helvetica, serif;
      font-weight: 400;
      font-style: italic;
      color: var(--variable-collection-logo-color);
      font-size: 32px;
+     text-transform: lowercase;
  }
 
 
@@ -251,6 +252,22 @@
      .past-event-image-lg {
          max-width: 480px;
          height: 420px;
+     }
+
+     main #crea-section {
+         height: 780px;
+         flex-direction: column;
+         justify-content: space-between;
+         align-items: flex-end;
+     }
+
+     #crea-section .name-logo {
+         text-align: right;
+     }
+
+     #crea-section .crea-description {
+         max-width: 520px;
+         text-align: right;
      }
  }
 

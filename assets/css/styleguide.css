@@ -35,11 +35,12 @@
 }
 /* General reset and box styling */
 #crea-section {
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
     background-color: #f9f9f9; /* Optional background for the section */
 
 }
