@@ -23,15 +23,15 @@
 }
 
 @font-face {
-    font-family: "Trap-ExtraBold"; src: url("/assets/fonts/Trap-ExtraBold.otf");
+    font-family: "Trap-ExtraBold"; src: url("/assets/fonts/Trap-ExtraBold.otf") format("opentype");
 
 }
 
 @font-face {
-    font-family:"trap-bold"; src: url("/assets/fonts/Trap-Bold.otf");
+    font-family: "Trap-Bold"; src: url("/assets/fonts/Trap-Bold.otf") format("opentype");
 }
 @font-face{
-    font-family: "SF Pro Text-RegularItalic"; src: url("/assets/fonts/SF-Pro-Text-RegularItalic.otf");
+    font-family: "SF Pro Text-RegularItalic"; src: url("/assets/fonts/SF-Pro-Text-RegularItalic.otf") format("opentype");
 }
 /* General reset and box styling */
 #crea-section {
