@@ -201,6 +201,7 @@
      color: var(--variable-collection-logo-color);
      font-size: 32px;
      text-transform: lowercase;
+     margin: 0;
  }
 
 
@@ -262,10 +263,16 @@
      }
 
      #crea-section .name-logo {
-         text-align: right;
+         align-self: flex-start;
+         text-align: left;
+     }
+
+     #crea-section .name-logo p {
+         text-align: left;
      }
 
      #crea-section .crea-description {
+         align-self: flex-end;
          max-width: 520px;
          text-align: right;
      }
