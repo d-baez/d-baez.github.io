@@ -38,24 +38,19 @@
     }
     .profile-card .card-banner {
         width: 100%;
-        height: 90px;
+        height: 420px;
         background: linear-gradient(135deg, #5c3a7e, #8b4f9e, #b07040);
         position: relative;
     }
-    .profile-card .card-avatar {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        border: 3px solid #fff;
-        position: absolute;
-        bottom: -40px;
-        left: 16px;
+    .profile-card .card-banner img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        background: #ccc;
-        /* placeholder color until image is added */
+        object-position: top center;
+        display: block;
     }
     .profile-card .card-body {
-        padding: 48px 20px 16px;
+        padding: 20px;
     }
     .profile-card .card-name {
         font-size: 1.5rem;
@@ -126,8 +121,7 @@
 <div class="box2">
     <div class="profile-card">
         <div class="card-banner">
-            <!-- swap src below once you have a photo at assets/images/profile.jpg -->
-            <img class="card-avatar" src="assets/images/profile.jpg" alt="Daniel Báez" onerror="this.style.background='#888';this.removeAttribute('src')">
+            <img src="assets/images/IMG_8781.jpeg" alt="Daniel Báez DJing">
         </div>
         <div class="card-body">
             <div class="card-name">Daniel Báez</div>
