@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://danielbaez.xyz/</loc>
+        <lastmod>2026-07-14</lastmod>
+    </url>
+    <url>
+        <loc>https://danielbaez.xyz/about</loc>
+        <lastmod>2026-07-10</lastmod>
+    </url>
+    <url>
+        <loc>https://danielbaez.xyz/projects</loc>
+        <lastmod>2026-01-04</lastmod>
+    </url>
+    <url>
+        <loc>https://danielbaez.xyz/music</loc>
+        <lastmod>2026-07-10</lastmod>
+    </url>
+    <url>
+        <loc>https://danielbaez.xyz/privacy</loc>
+        <lastmod>2026-01-04</lastmod>
+    </url>
+    <url>
+        <loc>https://danielbaez.xyz/resume</loc>
+        <lastmod>2026-06-15</lastmod>
+    </url>
+</urlset>
