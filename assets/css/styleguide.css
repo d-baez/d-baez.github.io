@@ -69,6 +69,71 @@
     text-align: justify; /* Align text for readability */
 }
 
+/* Box containing the artist/personal statement */
+.box4 {
+    width: 90%;
+    max-width: 600px;
+    align-items: center;
+    margin: 12px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Code-editor styled window used inside box3/box4 */
+.code-window {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: "IBM Plex Mono", monospace;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.code-window-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.code-window-header .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
+
+.code-window-title {
+    margin-left: 10px;
+    color: #8a8a8a;
+    font-size: 0.85em;
+}
+
+.code-window-body {
+    margin: 0;
+    padding: 18px 20px;
+    color: #d4d4d4;
+    font-size: 0.95em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.code-comment { color: #6a9955; }
+.code-keyword { color: #c586c0; }
+.code-var { color: #4ec9b0; }
+.code-string { color: #ce9178; }
+.code-punct { color: #d4d4d4; }
+.code-prompt { color: #569cd6; font-weight: bold; }
+
 /* Name-logo specific paragraph */
 .name-logo p {
     /*font-family: 'trap-Bold', ui-serif; !* Bold font for emphasis *!*/

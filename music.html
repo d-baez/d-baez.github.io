@@ -26,7 +26,15 @@
 <body>
   <div class="topnav">
     <a href="https://d-baez.github.io">home</a>
-    <a class="active" href="https://d-baez.github.io/projects">projects</a>
+    <div class="nav-dropdown">
+        <button type="button" class="dropdown-toggle active" aria-haspopup="true" aria-expanded="false">projects</button>
+        <div class="dropdown-menu">
+            <a href="https://d-baez.github.io/projects">all projects</a>
+            <a href="https://www.danielbphotos.wordpress.com/" target="_blank">Daniel B Photos</a>
+            <a href="https://danielbaez.webflow.io" target="_blank">Daniel's Digital Lab</a>
+            <a class="active" href="https://d-baez.github.io/music">My Music Library</a>
+        </div>
+    </div>
     <a href="https://d-baez.github.io/about">about</a>
   </div>
 
@@ -105,6 +113,7 @@
 </section>
 
 
+<script src="assets/js/nav.js"></script>
 </body>
 <footer class="footer ">
   <small> &copy; Copyright 2026, Daniel Báez</small>

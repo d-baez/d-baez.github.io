@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="assets/css/styleguide.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@1&family=IBM+Plex+Sans&family=Libre+Franklin:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans&family=Libre+Franklin:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <style>
@@ -42,7 +42,15 @@
 
     <div class="topnav">
         <a class="active" href="#header">home</a>
-        <a href="https://d-baez.github.io/projects">projects</a>
+        <div class="nav-dropdown">
+            <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">projects</button>
+            <div class="dropdown-menu">
+                <a href="https://d-baez.github.io/projects">all projects</a>
+                <a href="https://www.danielbphotos.wordpress.com/" target="_blank">Daniel B Photos</a>
+                <a href="https://danielbaez.webflow.io" target="_blank">Daniel's Digital Lab</a>
+                <a href="https://d-baez.github.io/music">My Music Library</a>
+            </div>
+        </div>
         <a href="https://d-baez.github.io/about">about</a>
     </div>
     <main>
@@ -77,19 +85,32 @@
 
     </section>
 
+    <section id="personal-statement">
+        <div class="box4">
+            <h2>my statement:</h2>
+            <div class="code-window">
+                <div class="code-window-header">
+                    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+                    <span class="code-window-title">statement.js</span>
+                </div>
+                <pre class="code-window-body"><code><span class="code-comment">// you are allowed to take up space, be loud about who you are.</span>
+<span class="code-comment">// we are all living this day by day — no one is ahead of you.</span>
+
+<span class="code-keyword">const</span> <span class="code-var">values</span> <span class="code-punct">=</span> <span class="code-punct">[</span>
+  <span class="code-string">"we are all worthy of love, regardless of status, role, race, gender, ability, language, identity, culture, or stage in life"</span><span class="code-punct">,</span>
+  <span class="code-string">"share resources where you can!!"</span><span class="code-punct">,</span>
+  <span class="code-string">"ayuda donde puedas"</span><span class="code-punct">,</span>
+<span class="code-punct">];</span></code></pre>
+            </div>
+        </div>
+    </section>
+
         <!-- time to add more images or projects that ive built or been a part of
-         TODO add artist statement
          [ ] Create popup menu for projects tab
          [ ] check if priacy page is compliant with Accessible format
          [ ] add more personality !!
-         [ ] personal statment
-            - we are all worthy of live regardless of statue/role/race/gender/ablity/language/identity/culture/live
-            - share resources where you can!!
-            - ayuda donde puedas
-
          -->
         <!-- TODO add DJay content section. Include img and links to music page --->
-        <!-- TODO: add my personal statmen. You are allowed to take up space, be loud about who you are. We are all living this day by day. no one is ahead of you -->
 
 <!--    <section class="coming-soon">-->
 <!--        <p class="museomoderno-100"> more to come soon! </p>-->
@@ -100,5 +121,7 @@
     <footer class="footer">
         <small>&copy; Copyright 2026, Daniel Báez</small>
     </footer>
+
+    <script src="assets/js/nav.js"></script>
 </body>
 </html>
