@@ -23,12 +23,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@1&family=IBM+Plex+Sans&family=Libre+Franklin:ital@0;1&display=swap" rel="stylesheet">
 <style>
-    body {background-image: url("assets/images/color-gradient-grain.jpg"); background-repeat: repeat; background-size: 700px auto; }
-
-    h1, h2, .intro-text {
-        text-shadow: 0 0 3px rgba(255,255,255,0.8), 0 0 6px rgba(255,255,255,0.6);
-    }
-
     .profile-card {
         display: inline-flex;
         flex-direction: column;
@@ -104,7 +98,15 @@
 <div class="topnav" >
     <a href="https://d-baez.github.io/">home</a>
     <!--  <a href="#news">News</a>-->
-    <a href="https://d-baez.github.io/projects">projects</a>
+    <div class="nav-dropdown">
+        <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">projects</button>
+        <div class="dropdown-menu">
+            <a href="https://d-baez.github.io/projects">all projects</a>
+            <a href="https://www.danielbphotos.wordpress.com/" target="_blank">Daniel B Photos</a>
+            <a href="https://danielbaez.webflow.io" target="_blank">Daniel's Digital Lab</a>
+            <a href="https://d-baez.github.io/music">My Music Library</a>
+        </div>
+    </div>
     <a class="active" href="#about">about</a>
 </div>
 
@@ -168,6 +170,7 @@
     <small>&copy; Copyright 2026, Daniel Báez</small>
 </footer>
 
+<script src="assets/js/nav.js"></script>
 </body>
 
 </html>
