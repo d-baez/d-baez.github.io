@@ -127,6 +127,85 @@
     word-break: break-word;
 }
 
+/* iMessage-style chat bubble used inside box3 */
+.imessage {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 4px;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.imessage p {
+    position: relative;
+    width: fit-content;
+    max-width: 80%;
+    margin: 0.35rem 0;
+    padding: 0.6rem 1rem;
+    border-radius: 1.15rem;
+    line-height: 1.35;
+    font-size: 1.05em;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.imessage p.from-them {
+    align-self: flex-start;
+    background-color: #e5e5ea;
+    color: #000;
+}
+
+.imessage p.from-them::before {
+    content: "";
+    position: absolute;
+    bottom: -0.1rem;
+    left: -0.35rem;
+    height: 1rem;
+    border-bottom-right-radius: 0.8rem 0.7rem;
+    border-left: 1rem solid #e5e5ea;
+    transform: translate(0, -0.1rem);
+}
+
+.imessage p.from-them::after {
+    content: "";
+    position: absolute;
+    bottom: -0.1rem;
+    left: 20px;
+    width: 10px;
+    height: 1rem;
+    background-color: #fff;
+    border-bottom-right-radius: 0.5rem;
+    transform: translate(-30px, -2px);
+}
+
+.imessage p.from-me {
+    align-self: flex-end;
+    background-color: #248bf5;
+    color: #fff;
+}
+
+.imessage p.from-me::before {
+    content: "";
+    position: absolute;
+    bottom: -0.1rem;
+    right: -0.35rem;
+    height: 1rem;
+    border-bottom-left-radius: 0.8rem 0.7rem;
+    border-right: 1rem solid #248bf5;
+    transform: translate(0, -0.1rem);
+}
+
+.imessage p.from-me::after {
+    content: "";
+    position: absolute;
+    bottom: -0.1rem;
+    right: -40px;
+    width: 10px;
+    height: 1rem;
+    background-color: #fff;
+    border-bottom-left-radius: 0.5rem;
+    transform: translate(-30px, -2px);
+}
+
 .code-comment { color: #6a9955; }
 .code-keyword { color: #c586c0; }
 .code-var { color: #4ec9b0; }
