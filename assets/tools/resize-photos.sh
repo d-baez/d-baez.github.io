@@ -94,7 +94,24 @@ for name in "${PHOTOS[@]}"; do
     continue
   fi
 
+  # Bake in the display rotation before the metadata carrying it is dropped,
+  # otherwise photos the camera stored sideways come out sideways.
+  orient=$("$repo_root/assets/tools/exif-orientation.py" "$src")
+  transform=()
+  case "$orient" in
+    3) transform=(--rotate 180) ;;
+    6) transform=(--rotate 90) ;;
+    8) transform=(--rotate 270) ;;
+    2) transform=(--flip horizontal) ;;
+    4) transform=(--flip vertical) ;;
+    5) transform=(--flip horizontal --rotate 270) ;;
+    7) transform=(--flip horizontal --rotate 90) ;;
+  esac
+
+  # The ${a[@]+"${a[@]}"} form is needed because bash 3.2, which is what
+  # macOS ships, treats an empty array as unset under `set -u`.
   sips -Z "$MAX_DIM" \
+       ${transform[@]+"${transform[@]}"} \
        --setProperty format jpeg \
        --setProperty formatOptions "$QUALITY" \
        "$src" --out "$out" >/dev/null 2>&1

@@ -26,8 +26,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function layout() {
         var width = pile.clientWidth;
         var cols = Math.max(2, Math.min(4, Math.floor(width / 190)));
-        var cellH = 200;
         var maxBottom = 0;
+
+        // Photos are shown uncropped, so portraits are much taller than
+        // landscapes. Pitch the rows off the tallest one and let them overlap
+        // a little, which is what gives the piled-snapshots look.
+        var tallest = 0;
+        photos.forEach(function (el) {
+            if (el.offsetHeight > tallest) tallest = el.offsetHeight;
+        });
+        var cellH = Math.max(150, tallest * 0.82);
 
         photos.forEach(function (el, i) {
             // Leave a photo the visitor placed where they put it, but pull it
