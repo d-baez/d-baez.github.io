@@ -134,15 +134,32 @@ document.addEventListener('DOMContentLoaded', function () {
         el.addEventListener('focus', function () { raise(el); });
     });
 
+    // A landscape photo at the same width as a portrait one looks much
+    // smaller, since it is only about half as tall. Tag them so CSS can give
+    // them extra width and even the two out. Reading it off the decoded image
+    // means new photos are handled without touching the markup.
+    function tagOrientation(el) {
+        var img = el.querySelector('img');
+        if (img && img.naturalWidth > img.naturalHeight) {
+            el.classList.add('is-landscape');
+        }
+    }
+
     // Images must be decoded before offsetWidth/Height are meaningful.
     var pending = photos.length;
+
+    function ready(el) {
+        tagOrientation(el);
+        if (--pending === 0) layout();
+    }
+
     photos.forEach(function (el) {
         var img = el.querySelector('img');
         if (img && !img.complete) {
-            img.addEventListener('load', function () { if (--pending === 0) layout(); });
-            img.addEventListener('error', function () { if (--pending === 0) layout(); });
-        } else if (--pending === 0) {
-            layout();
+            img.addEventListener('load', function () { ready(el); });
+            img.addEventListener('error', function () { ready(el); });
+        } else {
+            ready(el);
         }
     });
 

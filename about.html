@@ -122,6 +122,11 @@
         border-radius: 3px;
         box-shadow: 0 3px 10px rgba(0,0,0,0.22);
     }
+    /* Landscape shots are only ~3/4 as tall as portraits at a given width, so
+       they read as much smaller. The script tags them and this evens it out. */
+    .photo.is-landscape {
+        width: 210px;
+    }
     .photo img {
         display: block;
         width: 100%;
@@ -152,6 +157,14 @@
     .photo-pile.is-scattered .photo.is-dragging {
         cursor: grabbing;
         box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    }
+
+    /* Two columns still have to fit on a phone, so scale both down there.
+       Sized so two landscapes side by side clear the pile width, since the
+       frame padding counts toward it. */
+    @media (max-width: 480px) {
+        .photo { width: 135px; }
+        .photo.is-landscape { width: 165px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
