@@ -106,12 +106,6 @@
         color: #444;
         margin: 0 0 16px;
     }
-    /* The page declares no background, so a dark-mode browser paints the
-       canvas dark and default-black text vanishes. Pin readable colours. */
-    @media (prefers-color-scheme: dark) {
-        #photos h2 { color: #f2f2f2; }
-        #photos .pile-hint { color: #c9c9c9; }
-    }
 
     /* Fallback layout: a plain wrapped row if the script doesn't run. */
     .photo-pile {
@@ -124,7 +118,7 @@
         margin: 0;
         width: 165px;
         background: #fff;
-        padding: 8px 8px 10px;
+        padding: 4px 4px 5px;
         border-radius: 3px;
         box-shadow: 0 3px 10px rgba(0,0,0,0.22);
     }

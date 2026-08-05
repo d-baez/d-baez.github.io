@@ -1,3 +1,17 @@
+ /* Pages that set no background of their own were left transparent, so a
+    dark-mode browser painted the canvas dark and the black text vanished.
+    color-scheme: only pins form controls and scrollbars to the light theme;
+    the background-color is what actually fixes the text.
+
+    This sits on html rather than body deliberately. html is the bottom
+    layer, so pages that set their own background still win either way:
+    projects.html styles html directly and overrides this, while privacy,
+    resume and boilerroom style body, which paints over html. */
+ html {
+     color-scheme: light;
+     background-color: #f4f4f4;
+ }
+
  body {
      margin: 0;
      padding: 0;
