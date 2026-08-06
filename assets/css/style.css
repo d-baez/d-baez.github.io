@@ -262,7 +262,7 @@
      top: 162px;
      left: 50%;
      transform: translateX(-50%);
-     font-family: "SF Pro Text-RegularItalic", Helvetica, serif;
+     font-family: 'Libre Franklin', Helvetica, sans-serif;
      /*todo upload ^ font*/
      font-weight: 400;
      font-style: italic;
@@ -274,7 +274,7 @@
  }
 
  .crea-description {
-     font-family: "SF Pro Text-RegularItalic", Helvetica, serif;
+     font-family: 'Libre Franklin', Helvetica, sans-serif;
      font-weight: 600;
      font-style: italic;
      color: var(--variable-collection-logo-color);
