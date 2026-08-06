@@ -1,0 +1,34 @@
+# GitHub Pages runs every repo through Jekyll, whether or not it's a Jekyll
+# site. Until now this one built with no config at all, which meant it ran on
+# jekyll-theme-primer's defaults - and the defaults were publishing things
+# that aren't part of the site. This file turns that off.
+#
+# The pages themselves are hand-written HTML with no front matter, so Jekyll
+# treats them as static files and copies them through untouched. That part
+# was always fine and stays exactly the same.
+
+# No theme. Primer was doing two unwanted things: rendering assets/README.md
+# into a real page at /assets/, and shipping its own assets/css/style.scss
+# that compiles to assets/css/style.css - the same output path as the site's
+# actual stylesheet. The site's file happened to win, but that's a collision
+# waiting to break the day it doesn't.
+theme: null
+
+# Setting `exclude` replaces Jekyll's default list rather than adding to it,
+# so the standard entries are repeated here even though most don't exist in
+# this repo - they're cheap insurance if one ever shows up.
+exclude:
+  - assets/tools/       # local image-prep scripts; were served at /assets/tools/*.sh
+  - assets/README.md    # was rendered into a browsable page at /assets/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+
+# The custom domain is configured in the repo's Pages settings, which is what
+# actually routes danielbaez.xyz. Jekyll drops CNAME from the build by
+# default, so without this the file in the repo is decorative. Keeping it
+# shipped means the repo still records the domain it belongs to.
+include:
+  - CNAME
