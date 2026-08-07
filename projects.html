@@ -18,13 +18,62 @@
 
      <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@1&family=IBM+Plex+Sans&family=Libre+Franklin:ital@0;1&display=swap" rel="stylesheet">
+        <!-- Mono was loading only the italic axis (ital@1), which left the
+             terminal mock below rendering in oblique. Upright added. -->
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans&family=Libre+Franklin:ital@0;1&display=swap" rel="stylesheet">
         <style>
             html {
                 height: auto;
                 background: rgb(227,233,233	);
             }
             .container{
+            }
+
+            /* Calendario has no screenshot yet, so its card gets a small
+               mock of the terminal session instead of an <img>. Sized to sit at
+               the same visual weight as the 75%-wide screenshots beside it. */
+            /* The mock sits inside an <a>. A text-decoration set on an
+               ancestor propagates down and can't be switched off further in,
+               so this has to sit on the anchor itself. */
+            .mock-link {
+                text-decoration: none;
+            }
+            /* .box is shrink-to-fit, and the other cards only look spaced
+               because their images are 75% of their half. The mock fills its
+               half edge to edge, so the gutter has to be explicit. */
+            .mock-cell {
+                min-width: 0;
+                padding: 0 24px;
+            }
+            .card-mock {
+                /* Sized to its own content rather than a percentage — the
+                   transcript is pre-formatted, so a fixed width just clips it. */
+                width: max-content;
+                max-width: 100%;
+                margin: 0 auto;
+                font-style: normal;
+                background: #1e1e1e;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding: 16px 18px;
+                text-align: left;
+                font-family: 'IBM Plex Mono', monospace;
+                font-size: 0.8rem;
+                line-height: 1.6;
+                color: #d4d4d4;
+                white-space: pre;
+                overflow-x: auto;
+            }
+            .card-mock .prompt {
+                color: #569cd6;
+                font-weight: bold;
+            }
+            .card-mock .typed {
+                color: #fff;
+            }
+            .card-mock .event {
+                color: #9cdcfe;
             }
         </style>
     </head>
@@ -37,9 +86,10 @@
                 <button type="button" class="dropdown-toggle active" aria-haspopup="true" aria-expanded="false">projects</button>
                 <div class="dropdown-menu">
                     <a class="active" href="https://danielbaez.xyz/projects">all projects</a>
+                    <a href="https://danielbaez.xyz/calendario">Calendario</a>
+                    <a href="https://danielbaez.xyz/music">My Music Library</a>
                     <a href="https://www.danielbphotos.wordpress.com/" target="_blank">Daniel B Photos</a>
                     <a href="https://danielbaez.webflow.io" target="_blank">Daniel's Digital Lab</a>
-                    <a href="https://danielbaez.xyz/music">My Music Library</a>
                 </div>
             </div>
             <a href="https://danielbaez.xyz/about">about</a>
@@ -53,7 +103,39 @@
                 <!-- <p> Thanks Daniel</p> -->
             </div>
 
+<!--         Ordered most-recently-worked-on first: Calendario, then music.
+             The boxes alternate text-left / text-right down the page, so
+             reordering means swapping the two halves, not just moving blocks. -->
             <div class="box" > <!-- box 1-->
+                <div style="padding-left: 10%">
+                    <h1>Calendario</h1>
+                    <a href="calendario" target="_self">read the case study</a>
+                </div>
+                <div class="mock-cell">
+                    <a class="mock-link" href="calendario" target="_self">
+                        <!-- TODO: swap this mock for a real screenshot once there is one -->
+                        <div class="card-mock"><span class="prompt">You:</span> <span class="typed">what do I have today?</span>
+
+Today's Events:
+<span class="event">  - Morning focus block  9:00 AM
+  - Team standup  11:00 AM</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box"> <!--  box 2-->
+                <div>
+                    <a href="music" target="_self" >
+                        <img src="assets/images/music.jpg" alt="screenshot of the links of my music" style="width: 75%" loading="lazy" decoding="async">
+                    </a>
+                </div>
+                <div style="padding-right: 10%">
+                    <h1>my music library</h1>
+                    <a href="music" target="_self"> take this portal</a>
+                </div>
+            </div>
+
+            <div class="box" > <!-- box 3-->
                 <div style="padding-left: 10%">
                     <h1>Daniel B<br> Photos</h1>
                     <a href="https://www.danielbphotos.wordpress.com/" target="_blank">visit here</a>
@@ -65,7 +147,8 @@
                 </div>
             </div>
 
-            <div class="box"> <!--  box 2-->
+<!--             upcoming projects to add -->
+            <div class="box"> <!--  box 4-->
                 <div>
                     <a href="https://danielbaez.webflow.io" target="_blank">
                         <img src="assets/images/ddl-website.jpg" alt="Screenshot of daniel's digital" style="width: 75%" loading="lazy" decoding="async">
@@ -74,19 +157,6 @@
                 <div style="padding-right: 10%">
                     <h1>Daniel's Digital lab</h1>
                     <a href="https://danielbaez.webflow.io" target="_blank">Visit here</a>
-                </div>
-            </div>
-
-<!--             upcoming projects to add -->
-            <div class="box" > <!--  box 3-->
-                <div style="padding-left: 10%">
-                    <h1>my music library</h1>
-                    <a href="music" target="_self"> take this portal</a>
-                </div>
-                <div>
-                    <a href="music" target="_self" >
-                        <img src="assets/images/music.jpg" alt="screenshot of the links of my music" style="width: 75%" loading="lazy" decoding="async">
-                    </a>
                 </div>
             </div>
 

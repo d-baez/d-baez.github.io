@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DW0EE2FEKW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DW0EE2FEKW');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Calendario — a prototype AI scheduling assistant that answers plain-language questions about your Google Calendar.">
+    <meta property="og:title" content="Calendario — AI scheduling assistant">
+    <meta property="og:description" content="A prototype assistant that reads a Google Calendar and answers questions the way a person would ask them.">
+    <title>Calendario — AI scheduling assistant</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/css/styleguide.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=Libre+Franklin:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Page-local styles. The nav, footer and chat/code windows come from
+           style.css + styleguide.css so this page stays in step with the rest
+           of the site; everything below is layout for the case study itself. */
+        :root {
+            --cal-accent: rgba(136, 47, 177, 1);
+            --cal-ink: #1f1f22;
+            --cal-muted: #5f5f68;
+            --cal-line: #e3e0e8;
+        }
+
+        body {
+            color: var(--cal-ink);
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .cal-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* ── Hero ─────────────────────────────────────────── */
+        .cal-hero {
+            padding: 56px 0 32px;
+            border-bottom: 1px solid var(--cal-line);
+        }
+
+        .cal-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--cal-accent);
+            margin: 0 0 12px;
+        }
+
+        .cal-hero h1 {
+            font-size: clamp(2.4rem, 8vw, 3.6rem);
+            margin: 0;
+            padding: 0;
+            line-height: 1.05;
+        }
+
+        .cal-lede {
+            font-size: clamp(1.05rem, 3vw, 1.25rem);
+            color: var(--cal-muted);
+            margin: 16px 0 28px;
+            max-width: 34em;
+        }
+
+        .cal-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 18px 24px;
+            margin: 0;
+        }
+
+        .cal-facts dt {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--cal-muted);
+            margin-bottom: 4px;
+        }
+
+        .cal-facts dd {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* ── Sections ─────────────────────────────────────── */
+        .cal-section {
+            padding: 44px 0;
+            border-bottom: 1px solid var(--cal-line);
+        }
+
+        .cal-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .cal-section h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.35rem;
+            margin: 0 0 6px;
+            padding: 0;
+            text-align: left;
+        }
+
+        .cal-section h3 {
+            font-size: 1rem;
+            margin: 28px 0 6px;
+        }
+
+        .cal-section p {
+            max-width: 36em;
+        }
+
+        .cal-section ul {
+            max-width: 36em;
+            padding-left: 1.1rem;
+        }
+
+        .cal-section li {
+            margin-bottom: 10px;
+        }
+
+        /* ── Terminal session ─────────────────────────────── */
+        /* The .code-window chrome comes from styleguide.css. Calendario runs
+           as a REPL, so the transcript below is real terminal output — these
+           two classes just colour the typed input and the event lines. */
+        .term-in {
+            color: #fff;
+        }
+
+        .term-event {
+            color: #9cdcfe;
+        }
+
+        /* ── Flow diagram ─────────────────────────────────── */
+        .cal-flow {
+            list-style: none;
+            counter-reset: step;
+            padding: 0;
+            margin: 24px 0 0;
+            max-width: 100%;
+        }
+
+        .cal-flow li {
+            counter-increment: step;
+            position: relative;
+            padding: 0 0 22px 44px;
+            margin: 0;
+        }
+
+        .cal-flow li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--cal-accent);
+            color: #fff;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Connector line between steps, stopping after the last one. */
+        .cal-flow li::after {
+            content: "";
+            position: absolute;
+            left: 13px;
+            top: 30px;
+            bottom: 0;
+            width: 2px;
+            background: var(--cal-line);
+        }
+
+        .cal-flow li:last-child::after {
+            display: none;
+        }
+
+        .cal-flow strong {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.95rem;
+        }
+
+        .cal-flow span {
+            color: var(--cal-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ── Misc ─────────────────────────────────────────── */
+        .cal-wrap a {
+            color: var(--cal-accent);
+        }
+
+        /* Sits under a fact value to qualify it — e.g. a URL you can't open. */
+        .cal-fact-note {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--cal-muted);
+        }
+
+        .cal-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0;
+            margin: 18px 0 0;
+            list-style: none;
+        }
+
+        .cal-pill {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            border: 1px solid var(--cal-line);
+            border-radius: 999px;
+            padding: 5px 12px;
+            background: #fff;
+        }
+
+        .cal-note {
+            background: #faf7fd;
+            border-left: 3px solid var(--cal-accent);
+            padding: 14px 18px;
+            margin: 24px 0 0;
+            font-size: 0.95rem;
+            color: var(--cal-muted);
+            max-width: 36em;
+        }
+
+        .cal-back {
+            display: inline-block;
+            margin-top: 36px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--cal-accent);
+        }
+
+        @media (max-width: 640px) {
+            .cal-hero {
+                padding-top: 32px;
+            }
+            .cal-section {
+                padding: 32px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="https://danielbaez.xyz/">home</a>
+    <div class="nav-dropdown">
+        <button type="button" class="dropdown-toggle active" aria-haspopup="true" aria-expanded="false">projects</button>
+        <div class="dropdown-menu">
+            <a href="https://danielbaez.xyz/projects">all projects</a>
+            <a class="active" href="https://danielbaez.xyz/calendario">Calendario</a>
+            <a href="https://danielbaez.xyz/music">My Music Library</a>
+            <a href="https://www.danielbphotos.wordpress.com/" target="_blank">Daniel B Photos</a>
+            <a href="https://danielbaez.webflow.io" target="_blank">Daniel's Digital Lab</a>
+        </div>
+    </div>
+    <a href="https://danielbaez.xyz/about">about</a>
+</div>
+
+<main class="cal-wrap">
+
+    <header class="cal-hero">
+        <p class="cal-eyebrow">project · prototype</p>
+        <h1>Calendario</h1>
+        <p class="cal-lede">
+            An AI scheduling assistant that reads and books against my Google
+            Calendar, so I can ask the question I was already asking out loud —
+            <em>what do I have tomorrow?</em> — instead of opening an app and
+            scrolling to find out.
+        </p>
+
+        <dl class="cal-facts">
+            <div>
+                <dt>role</dt>
+                <dd>solo — design &amp; build</dd>
+            </div>
+            <div>
+                <dt>timeline</dt>
+                <dd>started 2025 · ongoing</dd>
+            </div>
+            <div>
+                <dt>status</dt>
+                <dd>working prototype</dd>
+            </div>
+            <div>
+                <dt>built with</dt>
+                <dd>Python · Google Calendar API · Cohere</dd>
+            </div>
+            <div>
+                <dt>deployed at</dt>
+                <dd>
+                    <a href="https://calendario.db444.xyz" target="_blank" rel="noopener">calendario.db444.xyz</a>
+                    <span class="cal-fact-note">private — not open to the public</span>
+                </dd>
+            </div>
+        </dl>
+    </header>
+
+    <section class="cal-section">
+        <h2>the problem</h2>
+        <p>
+            A calendar app is built to show you a grid. But nobody thinks in grids —
+            they think in questions. <em>Am I free Thursday afternoon? What's left today?
+            When's the next thing I actually have to be somewhere for?</em>
+        </p>
+        <p>
+            Answering any of those means opening the app, orienting yourself on the
+            current week, and doing the filtering in your head. It's a small tax, paid
+            many times a day. Calendario started as a bet that the question itself
+            should be the interface.
+        </p>
+    </section>
+
+    <section class="cal-section">
+        <h2>what it does</h2>
+        <p>
+            It runs as a REPL. You type in plain language; it works out what you
+            meant, hits your real calendar, and prints the answer. It reads and
+            writes — booking, moving and cancelling events, not just listing them.
+        </p>
+
+        <div class="code-window">
+            <div class="code-window-header">
+                <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+                <span class="code-window-title">python main.py</span>
+            </div>
+            <pre class="code-window-body"><code>Welcome to calenDario. How can I help you today?
+
+<span class="code-prompt">You:</span> <span class="term-in">what do I have today?</span>
+
+Today's Events:
+<span class="term-event">  - Morning focus block  9:00 AM - 10:30 AM
+  - Team standup  11:00 AM - 11:30 AM</span>
+
+<span class="code-prompt">You:</span> <span class="term-in">schedule studio time tomorrow</span>
+
+Schedule 'studio time' on Fri, Aug 7 at 10:00 AM for 60 min?
+Reply 'yes' to confirm, or give me a time like 'at 3pm'.
+
+<span class="code-prompt">You:</span> <span class="term-in">at 6pm</span>
+
+Created: studio time
+Time: 6:00 PM - 7:00 PM
+
+<span class="code-prompt">You:</span> <span class="term-in">what should I do next</span>
+
+<span class="code-comment">Wrap up anything short before your focus block — it starts in 40
+minutes and runs an hour and a half.</span>
+
+Next up: Morning focus block (other)
+Starts at 09:00 AM — in 40 minutes</code></pre>
+        </div>
+        <p class="cal-note">
+            Real output, with my own events swapped out. The green line is the
+            only model-written text — everything around it is printed by the app.
+        </p>
+
+        <p>
+            Ten intents cover how I actually use a calendar. The first four read;
+            the next three write; the last three are the ones that make it feel
+            like an assistant rather than a command line.
+        </p>
+        <ul class="cal-pill-row">
+            <li class="cal-pill">show_today</li>
+            <li class="cal-pill">show_tomorrow</li>
+            <li class="cal-pill">show_upcoming</li>
+            <li class="cal-pill">analyze_week</li>
+            <li class="cal-pill">create_event</li>
+            <li class="cal-pill">modify_event</li>
+            <li class="cal-pill">delete_event</li>
+            <li class="cal-pill">analyze_schedule</li>
+            <li class="cal-pill">next_action</li>
+            <li class="cal-pill">free_question</li>
+        </ul>
+    </section>
+
+    <section class="cal-section">
+        <h2>how it works</h2>
+        <p>
+            Every message takes the same path. The model is used once, at the front,
+            and only to decide <em>what you meant</em> — never to do the arithmetic
+            or touch the calendar.
+        </p>
+
+        <ol class="cal-flow">
+            <li>
+                <strong>route the message</strong>
+                <span>A single Cohere call turns the message into a JSON object: one
+                    of ten intents, plus any entities it can pull out. Temperature 0,
+                    because this is classification, not writing.</span>
+            </li>
+            <li>
+                <strong>resolve the date and time in Python</strong>
+                <span>The model returns "tomorrow" and "18:00" as literals and stops
+                    there — day-of-week arithmetic is the thing it gets wrong most
+                    reliably, so the code does that itself against a fixed timezone.</span>
+            </li>
+            <li>
+                <strong>act on the calendar</strong>
+                <span>Read or write through the Google Calendar API. Anything it
+                    creates goes on its own dedicated calendar, so a bad guess is easy
+                    to find and undo.</span>
+            </li>
+            <li>
+                <strong>ask before it books</strong>
+                <span>If a create request is missing a title or a time, the app holds
+                    the half-finished event and asks for the one piece it needs,
+                    rather than inventing it.</span>
+            </li>
+        </ol>
+
+        <h3>the contract</h3>
+        <p>
+            Everything downstream is ordinary Python. The whole interface between the
+            model and the app is this one object:
+        </p>
+        <div class="code-window">
+            <div class="code-window-header">
+                <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+                <span class="code-window-title">router output</span>
+            </div>
+            <pre class="code-window-body"><code><span class="code-comment">// "schedule studio time tomorrow at 6pm" becomes:</span>
+
+<span class="code-punct">{</span>
+  <span class="code-string">"intent"</span><span class="code-punct">:</span> <span class="code-string">"create_event"</span><span class="code-punct">,</span>
+  <span class="code-string">"entities"</span><span class="code-punct">:</span> <span class="code-punct">{</span>
+    <span class="code-string">"title"</span><span class="code-punct">:</span> <span class="code-string">"studio time"</span><span class="code-punct">,</span>
+    <span class="code-string">"date"</span><span class="code-punct">:</span> <span class="code-string">"tomorrow"</span><span class="code-punct">,</span>      <span class="code-comment">// a literal, not a date</span>
+    <span class="code-string">"time"</span><span class="code-punct">:</span> <span class="code-string">"18:00"</span><span class="code-punct">,</span>
+    <span class="code-string">"duration_minutes"</span><span class="code-punct">:</span> <span class="code-var">60</span>
+  <span class="code-punct">},</span>
+  <span class="code-string">"reply"</span><span class="code-punct">:</span> <span class="code-keyword">null</span>            <span class="code-comment">// only set for questions it answers directly</span>
+<span class="code-punct">}</span></code></pre>
+        </div>
+        <p class="cal-note">
+            Keeping the contract this narrow is what makes the rest testable. If the
+            model returns something unparseable, that's one known failure mode with
+            one fallback, instead of a wrong action taken confidently.
+        </p>
+    </section>
+
+    <section class="cal-section">
+        <h2>what I learned</h2>
+
+        <h3>the hard part isn't the AI</h3>
+        <p>
+            Understanding the question turned out to be the easy half. The genuinely
+            fiddly work was everything underneath: timezones, all-day events that
+            have a date but no time at all, and the difference between listing
+            tomorrow and analysing it — which reads identically to a person and had
+            to be spelled out for the model in as many words.
+        </p>
+
+        <h3>give the model less to do</h3>
+        <p>
+            The version that worked was the one that asked the model for less. It
+            gets one job — read the message, return the JSON — at temperature 0,
+            and explicitly does <em>not</em> compute dates, because that's the part
+            it fails at quietly. Every step after the router is code I can test.
+        </p>
+
+        <h3>the empty state is a real answer</h3>
+        <p>
+            "No events scheduled for today" is information. An empty list is a bug
+            you can read. Same for the confirmation step: an assistant that books
+            the wrong thing instantly is worse than one that asks.
+        </p>
+    </section>
+
+    <section class="cal-section">
+        <h2>where it's going</h2>
+        <p>
+            The idea started in 2025 and sat as a rough script for a while; most of
+            what's described here got built in 2026.
+        </p>
+        <p>
+            The terminal version is the one that actually works. Getting it out of the
+            terminal is the current project — there's a web front end deployed at
+            <a href="https://calendario.db444.xyz" target="_blank" rel="noopener">calendario.db444.xyz</a>,
+            with Google sign-in wired up, a month calendar and a three-day preview
+            beside the chat. It's private: not open to the public, and it runs on mock
+            events for now. The OAuth handshake is done, but the web app isn't reading
+            a real calendar yet — the page says so on its own badge.
+        </p>
+        <ul>
+            <li>Connecting the web front end to the same calendar layer the terminal
+                version already uses, so the two stop being different products.</li>
+            <li>Teaching it the user's own patterns — there's a profile built from
+                calendar history that the router already gets, and it could be doing
+                much more with it.</li>
+            <li>Widening the range of phrasings it understands, so it degrades
+                gracefully instead of falling through to "not sure how to help".</li>
+        </ul>
+        <!-- TODO: link the repo here once it's public, e.g.
+             <p><a href="https://github.com/d-baez/calendario">source on GitHub</a></p> -->
+
+        <a class="cal-back" href="https://danielbaez.xyz/projects">← back to all projects</a>
+    </section>
+
+</main>
+
+<script src="assets/js/nav.js"></script>
+</body>
+<footer class="footer">
+    <small>&copy; Copyright 2026, Daniel Báez</small>
+</footer>
+</html>
