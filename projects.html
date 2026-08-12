@@ -38,13 +38,9 @@
             .mock-link {
                 text-decoration: none;
             }
-            /* .box is shrink-to-fit, and the other cards only look spaced
-               because their images are 75% of their half. The mock fills its
-               half edge to edge, so the gutter has to be explicit. */
-            .mock-cell {
-                min-width: 0;
-                padding: 0 24px;
-            }
+            /* The gutter comes from the `gap` on .projects-page .box now, and
+               the even two-column split comes from the flex rule in style.css,
+               so this cell needs nothing of its own. */
             .card-mock {
                 /* Sized to its own content rather than a percentage — the
                    transcript is pre-formatted, so a fixed width just clips it. */
@@ -107,7 +103,7 @@
              The boxes alternate text-left / text-right down the page, so
              reordering means swapping the two halves, not just moving blocks. -->
             <div class="box" > <!-- box 1-->
-                <div style="padding-left: 10%">
+                <div>
                     <h1>Calendario</h1>
                     <a href="calendario" target="_self">read the case study</a>
                 </div>
@@ -126,23 +122,23 @@ Today's Events:
             <div class="box"> <!--  box 2-->
                 <div>
                     <a href="music" target="_self" >
-                        <img src="assets/images/music.jpg" alt="screenshot of the links of my music" style="width: 75%" loading="lazy" decoding="async">
+                        <img src="assets/images/music.jpg" alt="screenshot of the links of my music" loading="lazy" decoding="async">
                     </a>
                 </div>
-                <div style="padding-right: 10%">
+                <div>
                     <h1>my music library</h1>
                     <a href="music" target="_self"> take this portal</a>
                 </div>
             </div>
 
             <div class="box" > <!-- box 3-->
-                <div style="padding-left: 10%">
+                <div>
                     <h1>Daniel B<br> Photos</h1>
                     <a href="https://www.danielbphotos.wordpress.com/" target="_blank">visit here</a>
                 </div>
                 <div id="img">
                     <a href="https://danielbphotos.wordpress.com/" target="_blank" >
-                        <img src="assets/images/photo-website.jpg" alt="screenshot of Daniel B Photos website" style="width: 75%" loading="lazy" decoding="async">
+                        <img src="assets/images/photo-website.jpg" alt="screenshot of Daniel B Photos website" loading="lazy" decoding="async">
                     </a>
                 </div>
             </div>
@@ -151,10 +147,10 @@ Today's Events:
             <div class="box"> <!--  box 4-->
                 <div>
                     <a href="https://danielbaez.webflow.io" target="_blank">
-                        <img src="assets/images/ddl-website.jpg" alt="Screenshot of daniel's digital" style="width: 75%" loading="lazy" decoding="async">
+                        <img src="assets/images/ddl-website.jpg" alt="Screenshot of daniel's digital" loading="lazy" decoding="async">
                     </a>
                 </div>
-                <div style="padding-right: 10%">
+                <div>
                     <h1>Daniel's Digital lab</h1>
                     <a href="https://danielbaez.webflow.io" target="_blank">Visit here</a>
                 </div>

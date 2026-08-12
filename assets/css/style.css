@@ -131,19 +131,47 @@
 
  .box{
      display: flex;
-     justify-content: stretch;
-     justify-items: center;
-     justify-self: center ;
+     justify-content: center;
      flex-direction: row;
      align-items: center;
      margin: 0 auto;
      padding-bottom: 10px;
  }
 
+ /* The projects rows used to be shrink-to-fit: .box is a block-level flex
+    container, but with no width set it sized to its own content, so each of
+    the four rows came out a different width and `margin: 0 auto` then centred
+    each one on a different axis. Giving the container a fixed max-width and
+    the rows an even two-column split puts every row on one shared centre. */
+ .projects-page .container {
+     max-width: 1100px;
+     margin: 0 auto;
+     padding: 0 24px;
+ }
+
+ .projects-page .box {
+     width: 100%;
+     gap: 32px;
+ }
+
+ /* flex-basis 0 rather than auto: the halves split the row evenly instead of
+    being sized by their contents, which is what keeps the text column and the
+    image column aligned from row to row. */
+ .projects-page .box > div {
+     flex: 1 1 0;
+     min-width: 0;
+     text-align: center;
+ }
+
  .projects-page .box img {
      border: 1px solid #ddd;
      border-radius: 8px;
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     /* was an inline width: 75% resolved against a shrink-to-fit parent, so
+        every image landed at a different size. max-width caps the big ones. */
+     width: 100%;
+     max-width: 420px;
+     height: auto;
  }
 
  .box2{
@@ -400,15 +428,15 @@
          flex-direction: column;
          padding: 1rem;
      }
+     .projects-page .box {
+         gap: 16px;
+     }
      .box img {
-         width: 100% !important;
          max-width: 100%;
      }
-     .box > div[style*="padding-left"],
-     .box > div[style*="padding-right"] {
-         padding-left: 0 !important;
-         padding-right: 0 !important;
-     }
+     /* The rules that used to sit here reset the inline `padding-left: 10%` /
+        `padding-right: 10%` on the projects columns. Those inline styles are
+        gone, so the !important overrides they needed went with them. */
 
      /* Iframes (Gravatar card on about page) */
      iframe {
