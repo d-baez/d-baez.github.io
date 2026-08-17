@@ -147,7 +147,12 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
     <script>
-        VanillaTilt.init(document.querySelector(".box3"));
+        // integrity blocks the script outright on a mismatch, so VanillaTilt
+        // may never be defined. Guarding keeps that case to a missing tilt
+        // effect rather than a ReferenceError.
+        if (typeof VanillaTilt !== "undefined") {
+            VanillaTilt.init(document.querySelector(".box3"));
+        }
     </script>
 </body>
 </html>
