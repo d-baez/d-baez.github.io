@@ -210,6 +210,302 @@
 .code-punct { color: #d4d4d4; }
 .code-prompt { color: #569cd6; font-weight: bold; }
 
+/* ── Live terminal (front-page artist statement) ─────────────
+   Built on top of .code-window: same chrome, same colours. What is
+   added here is the scrolling body, the prompt line, and the retro
+   theme. See assets/js/terminal.js for the behaviour. */
+
+.terminal {
+    position: relative;
+}
+
+/* The prompt line and the key row are display:flex, and an author
+   display beats the browser's [hidden] { display: none }. Without this
+   they would both be on screen before the typing has even started. */
+.terminal [hidden] {
+    display: none;
+}
+
+.terminal:focus-within {
+    box-shadow: 0 0 0 2px rgba(39, 201, 63, 0.35), 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Deliberately not .code-window-body: that sets white-space: pre-wrap,
+   which would turn the indentation of the markup inside this container
+   into visible blank lines. The <pre> and each output line set it
+   themselves instead. */
+.terminal-body {
+    padding: 18px 20px;
+    color: #d4d4d4;
+    font-size: 0.95em;
+    line-height: 1.6;
+    /* A ceiling here means output grows into its own scroll area rather
+       than pushing the rest of the page down as commands are run. */
+    max-height: 60vh;
+    min-height: 15rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    cursor: text;
+}
+
+.terminal-statement {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.terminal-skip {
+    margin-left: auto;
+    font-family: inherit;
+    font-size: 0.78em;
+    color: #8a8a8a;
+    background: transparent;
+    border: 1px solid #3a3a3a;
+    border-radius: 999px;
+    padding: 2px 10px;
+    cursor: pointer;
+}
+
+.terminal-skip:hover,
+.terminal-skip:focus-visible {
+    color: #d4d4d4;
+    border-color: #5a5a5a;
+}
+
+/* The caret that leads the auto-typing. It holds still while text is
+   being written and blinks once the line has stopped moving. */
+.term-cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    vertical-align: text-bottom;
+    background-color: #27c93f;
+    animation: term-blink 1.1s steps(1, end) infinite;
+}
+
+.terminal.is-typing .term-cursor {
+    animation: none;
+}
+
+@keyframes term-blink {
+    50% { opacity: 0; }
+}
+
+/* ── output lines ──────────────────────────────────────────── */
+
+.term-line,
+.term-echo {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.term-space {
+    height: 0.9em;
+}
+
+.term-note { color: #9cdcfe; }
+.term-dim { color: #8a8a8a; }
+.term-warn { color: #ce9178; }
+.term-accent { color: #27c93f; }
+
+.term-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 12px;
+}
+
+.term-key {
+    flex: 0 0 9.5rem;
+    color: #c586c0;
+}
+
+.term-val {
+    flex: 1 1 12rem;
+    min-width: 0;
+}
+
+.term-link {
+    color: #4ec9b0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.term-link:hover,
+.term-link:focus-visible {
+    color: #9cdcfe;
+}
+
+/* `ls` in a real terminal lays its columns out to fit the width it has.
+   A grid does the same thing, and reflows to one column on a phone. */
+.term-ls {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 2px 16px;
+    margin: 0.2em 0 0.6em;
+}
+
+.term-art {
+    margin: 0.2em 0 0.6em;
+    color: #27c93f;
+    font-size: 0.9em;
+    line-height: 1.15;
+    overflow-x: auto;
+}
+
+/* ── the prompt line ───────────────────────────────────────── */
+
+.terminal-prompt-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.term-prompt {
+    flex: none;
+    color: #569cd6;
+    font-weight: bold;
+    white-space: nowrap;
+    cursor: text;
+}
+
+.term-prompt .term-cwd { margin-left: 0.5ch; color: #4ec9b0; }
+.term-prompt .term-sigil { margin-left: 0.5ch; color: #569cd6; }
+
+.term-echo .term-prompt { margin-right: 8px; }
+
+.terminal-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: #d4d4d4;
+    font: inherit;
+    caret-color: #27c93f;
+}
+
+/* ── tappable commands ─────────────────────────────────────── */
+
+.terminal-keys {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px 16px;
+    border-top: 1px solid #2d2d2d;
+    padding-top: 14px;
+}
+
+.terminal-keys-label {
+    color: #8a8a8a;
+    font-size: 0.8em;
+}
+
+.terminal-keys button {
+    font-family: inherit;
+    font-size: 0.8em;
+    color: #9cdcfe;
+    background-color: #252526;
+    border: 1px solid #3a3a3a;
+    border-radius: 999px;
+    padding: 7px 13px;
+    cursor: pointer;
+}
+
+.terminal-keys button:hover,
+.terminal-keys button:focus-visible {
+    background-color: #333;
+    border-color: #5a5a5a;
+}
+
+/* ── retro: green on black ─────────────────────────────────── */
+
+.terminal.is-retro { background-color: #04170a; }
+.terminal.is-retro .code-window-header { background-color: #06230e; border-bottom-color: #0d4a1c; }
+.terminal.is-retro .code-window-title { color: #2fbf5e; }
+.terminal.is-retro .dot { background-color: #1c7a36; }
+.terminal.is-retro .terminal-body { color: #33ff77; text-shadow: 0 0 6px rgba(51, 255, 119, 0.4); }
+.terminal.is-retro .code-comment { color: #1f9c4a; }
+.terminal.is-retro .code-keyword,
+.terminal.is-retro .code-var,
+.terminal.is-retro .code-punct,
+.terminal.is-retro .term-note,
+.terminal.is-retro .term-accent,
+.terminal.is-retro .term-key,
+.terminal.is-retro .term-prompt,
+.terminal.is-retro .term-prompt .term-cwd,
+.terminal.is-retro .term-prompt .term-sigil,
+.terminal.is-retro .term-art { color: #33ff77; }
+.terminal.is-retro .code-string,
+.terminal.is-retro .term-link { color: #9dffbe; }
+.terminal.is-retro .term-dim { color: #2cc463; }
+.terminal.is-retro .term-warn { color: #d8ff5a; }
+.terminal.is-retro .term-cursor { background-color: #33ff77; }
+.terminal.is-retro .terminal-input { color: #33ff77; caret-color: #33ff77; }
+.terminal.is-retro .terminal-keys { border-top-color: #0d4a1c; }
+.terminal.is-retro .terminal-keys button { color: #33ff77; background-color: #06230e; border-color: #0d4a1c; }
+.terminal.is-retro .terminal-keys button:hover,
+.terminal.is-retro .terminal-keys button:focus-visible { background-color: #0a3213; }
+.terminal.is-retro .terminal-skip { color: #1f9c4a; border-color: #0d4a1c; }
+
+/* Scanlines. pointer-events: none so the overlay never eats a click or a
+   text selection underneath it. */
+.terminal.is-retro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 0, 0, 0.16) 3px,
+        rgba(0, 0, 0, 0.16) 4px
+    );
+    border-radius: 10px;
+}
+
+/* Read by screen readers, never shown: the finished statement, handed
+   over up front so nobody has to sit through the typing. */
+.term-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 640px) {
+    .terminal-body {
+        padding: 14px;
+        font-size: 0.8em;
+        max-height: 58vh;
+        min-height: 12rem;
+    }
+
+    /* The full host name eats most of a phone's width, so the prompt
+       shortens to the part that matters. */
+    .term-prompt .term-host { display: none; }
+    .term-prompt .term-cwd { margin-left: 0; }
+
+    .term-key { flex-basis: 100%; }
+    .term-val { flex-basis: 100%; }
+
+    .term-ls { grid-template-columns: 1fr 1fr; }
+
+    .terminal-keys { padding: 12px 14px 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .term-cursor { animation: none; }
+}
+
 /* Name-logo specific paragraph */
 .name-logo p {
     /*font-family: 'trap-Bold', ui-serif; !* Bold font for emphasis *!*/
