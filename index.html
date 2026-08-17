@@ -58,8 +58,8 @@
                 <a href="https://danielbaez.xyz/projects">all projects</a>
                 <a href="https://danielbaez.xyz/calendario">Calendario</a>
                 <a href="https://danielbaez.xyz/music">My Music Library</a>
-                <a href="https://www.danielbphotos.wordpress.com/" target="_blank">Daniel B Photos</a>
-                <a href="https://danielbaez.webflow.io" target="_blank">Daniel's Digital Lab</a>
+                <a href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">Daniel B Photos</a>
+                <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">Daniel's Digital Lab</a>
             </div>
         </div>
         <a href="https://danielbaez.xyz/about">about</a>
@@ -136,9 +136,23 @@
     </footer>
 
     <script src="assets/js/nav.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+    <!-- The only third-party script on the site. The version is pinned, but a
+         pin alone only fixes which file is asked for - it can't tell whether
+         what came back is that file. integrity makes the browser hash the
+         response and refuse to run it if it doesn't match, so a compromised
+         CDN can't quietly serve something else. crossorigin is required for
+         the check to run at all on a cross-origin request. -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
+            integrity="sha384-0k1dj5tm+KUH/4vkNk/i90XsjDA8Ltmt+ybcrFoH4t0dgv/WZsPpVBnkhcroX8UL"
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
     <script>
-        VanillaTilt.init(document.querySelector(".box3"));
+        // integrity blocks the script outright on a mismatch, so VanillaTilt
+        // may never be defined. Guarding keeps that case to a missing tilt
+        // effect rather than a ReferenceError.
+        if (typeof VanillaTilt !== "undefined") {
+            VanillaTilt.init(document.querySelector(".box3"));
+        }
     </script>
 </body>
 </html>
