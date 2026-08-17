@@ -100,12 +100,20 @@
     <section id="personal-statement">
         <div class="box4">
             <h2>my statement:</h2>
-            <div class="code-window">
+            <!-- The statement is written out here in full, already rendered.
+                 terminal.js finds it, empties it, and re-types it once the
+                 box is scrolled into view, then opens a live prompt below.
+                 With JS off none of that happens and the statement is simply
+                 sitting there - the animation is the enhancement, never the
+                 way the words get on the page. -->
+            <div class="code-window terminal" id="statement-terminal">
                 <div class="code-window-header">
                     <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
                     <span class="code-window-title">statement.js</span>
+                    <button type="button" class="terminal-skip" id="terminal-skip" hidden>skip &rsaquo;&rsaquo;</button>
                 </div>
-                <pre class="code-window-body"><code><span class="code-comment">// you are allowed to take up space, be loud about who you are.</span>
+                <div class="terminal-body">
+                    <pre class="terminal-statement" id="statement-source"><code><span class="code-comment">// you are allowed to take up space, be loud about who you are.</span>
 <span class="code-comment">// we are all living this day by day — no one is ahead of you.</span>
 
 <span class="code-keyword">const</span> <span class="code-var">values</span> <span class="code-punct">=</span> <span class="code-punct">[</span>
@@ -113,6 +121,26 @@
   <span class="code-string">"share resources where you can!!"</span><span class="code-punct">,</span>
   <span class="code-string">"ayuda donde puedas"</span><span class="code-punct">,</span>
 <span class="code-punct">];</span></code></pre>
+                    <div class="terminal-log" id="terminal-log" role="log" aria-live="polite"></div>
+                    <form class="terminal-prompt-line" id="terminal-form" hidden>
+                        <label class="term-prompt" for="terminal-input"><span class="term-host">visitor@danielbaez.xyz</span><span class="term-cwd">~</span><span class="term-sigil">%</span></label>
+                        <input class="terminal-input" id="terminal-input" type="text"
+                               autocomplete="off" autocapitalize="none" autocorrect="off"
+                               spellcheck="false" enterkeyhint="go" aria-label="terminal command">
+                    </form>
+                </div>
+                <!-- Touch has no keyboard sitting there waiting, so the
+                     commands double as buttons. They are useful on a mouse
+                     too - they say out loud that the box is interactive. -->
+                <div class="terminal-keys" id="terminal-keys" hidden>
+                    <span class="terminal-keys-label">tap:</span>
+                    <button type="button" data-cmd="help">help</button>
+                    <button type="button" data-cmd="ls">ls</button>
+                    <button type="button" data-cmd="whoami">whoami</button>
+                    <button type="button" data-cmd="contact">contact</button>
+                    <button type="button" data-cmd="theme">theme</button>
+                    <button type="button" data-cmd="clear">clear</button>
+                </div>
             </div>
         </div>
     </section>
@@ -136,6 +164,7 @@
     </footer>
 
     <script src="assets/js/nav.js"></script>
+    <script src="assets/js/terminal.js" defer></script>
     <!-- The only third-party script on the site. The version is pinned, but a
          pin alone only fixes which file is asked for - it can't tell whether
          what came back is that file. integrity makes the browser hash the
