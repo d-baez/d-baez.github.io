@@ -1,209 +1,444 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DW0EE2FEKW"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DW0EE2FEKW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-            gtag('config', 'G-DW0EE2FEKW');
-        </script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="UTF-8">
-        <title>Daniel's projects</title>
-        <meta name="description" content="Explore curated portals into my universe: Calendario, my music library, photography and the digital lab.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://danielbaez.xyz/projects">
-        <meta property="og:site_name" content="Daniel Báez">
-        <meta property="og:title" content="Projects — Daniel Báez">
-        <meta property="og:description" content="Explore curated portals into my universe: Calendario, my music library, photography and the digital lab.">
-        <meta property="og:image" content="https://danielbaez.xyz/assets/images/og-default.png">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="Daniel Baez - creative developer and designer">
-        <meta name="twitter:card" content="summary_large_image">
-        <link rel="stylesheet" href="assets/css/style.css">
-     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+        gtag('config', 'G-DW0EE2FEKW');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Daniel's projects</title>
+    <meta name="description" content="Explore curated portals into my universe: Calendario, my music library, photography and the digital lab.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://danielbaez.xyz/projects">
+    <meta property="og:site_name" content="Daniel Báez">
+    <meta property="og:title" content="Projects — Daniel Báez">
+    <meta property="og:description" content="Explore curated portals into my universe: Calendario, my music library, photography and the digital lab.">
+    <meta property="og:image" content="https://danielbaez.xyz/assets/images/og-default.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Daniel Baez - creative developer and designer">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <!-- Mono was loading only the italic axis (ital@1), which left the
-             terminal mock below rendering in oblique. Upright added. -->
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans&family=Libre+Franklin:ital@0;1&display=swap" rel="stylesheet">
-        <style>
-            html {
-                height: auto;
-                background: rgb(227,233,233	);
-            }
-            .container{
-            }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Mono was loading only the italic axis (ital@1), which left the
+         terminal mocks below rendering in oblique. Upright added, plus the
+         600 weights the tile headings ask for so they aren't synthesised. -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;600&family=Libre+Franklin:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        html {
+            height: auto;
+            background: rgb(227,233,233);
+        }
 
-            /* Calendario has no screenshot yet, so its card gets a small
-               mock of the terminal session instead of an <img>. Sized to sit at
-               the same visual weight as the 75%-wide screenshots beside it. */
-            /* The mock sits inside an <a>. A text-decoration set on an
-               ancestor propagates down and can't be switched off further in,
-               so this has to sit on the anchor itself. */
-            .mock-link {
-                text-decoration: none;
-            }
-            /* The gutter comes from the `gap` on .projects-page .box now, and
-               the even two-column split comes from the flex rule in style.css,
-               so this cell needs nothing of its own. */
-            .card-mock {
-                /* Sized to its own content rather than a percentage — the
-                   transcript is pre-formatted, so a fixed width just clips it. */
-                width: max-content;
-                max-width: 100%;
-                margin: 0 auto;
-                font-style: normal;
-                background: #1e1e1e;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                padding: 16px 18px;
-                text-align: left;
-                font-family: 'IBM Plex Mono', monospace;
-                font-size: 0.8rem;
-                line-height: 1.6;
-                color: #d4d4d4;
-                white-space: pre;
-                overflow-x: auto;
-            }
-            .card-mock .prompt {
-                color: #569cd6;
-                font-weight: bold;
-            }
-            .card-mock .typed {
-                color: #fff;
-            }
-            .card-mock .event {
-                color: #9cdcfe;
-            }
-        </style>
-    </head>
-    <!-- everything in body is -->
-    <body class="projects-page">
-        <div class="topnav">
-            <a  href="https://danielbaez.xyz/">home</a>
-            <!--  <a href="#news">News</a>-->
-            <div class="nav-dropdown">
-                <button type="button" class="dropdown-toggle active" aria-haspopup="true" aria-expanded="false">projects</button>
-                <div class="dropdown-menu">
-                    <a class="active" href="https://danielbaez.xyz/projects">all projects</a>
-                    <a href="https://danielbaez.xyz/calendario">Calendario</a>
-                    <a href="https://danielbaez.xyz/music">My Music Library</a>
-                    <a href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">Daniel B Photos</a>
-                    <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">Daniel's Digital Lab</a>
-                </div>
+        /* ── the mosaic ───────────────────────────────────────
+           The page used to be four full-width rows alternating
+           text-left / image-right, so five projects took five
+           screens and every one of them read at the same weight.
+           This is the Mantine LeadGrid shape instead: a two-column
+           grid whose left column is one tall primary tile and whose
+           right column is a nested grid of half-height tiles. The
+           case study leads; the portals sit beside it. */
+
+        :root {
+            --gap: 16px;
+            --primary-h: 480px;
+            /* the two stacked halves plus the gutter between them come out
+               to exactly the primary height */
+            --secondary-h: calc(var(--primary-h) / 2 - var(--gap) / 2);
+            --tile-radius: 14px;
+            --accent: #04AA6D;
+            --ink: #1a1a1a;
+            --muted: #5a5a5a;
+        }
+
+        body { text-align: left; }
+
+        /* .projects-page .container in style.css already carries the
+           1100px max-width and the side padding. */
+        .projects-page .container { padding-bottom: 56px; }
+
+        #header {
+            padding: 40px 0 24px;
+        }
+        #header h1 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: clamp(1.7rem, 4vw, 2.6rem);
+            margin: 0 0 10px;
+            padding: 0;
+            color: var(--ink);
+        }
+        #header p {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--muted);
+            max-width: 62ch;
+            margin: 0;
+        }
+
+        /* ── tile primitives ─────────────────────────────── */
+        .tile {
+            background: #fff;
+            border-radius: var(--tile-radius);
+            box-shadow: 0 2px 14px rgba(0,0,0,0.10);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+        /* The link wraps the whole card, so it has to be a flex box itself:
+           a percentage height on the card would resolve against a grid row
+           that isn't sized yet, and the card overflows its row on narrow
+           screens. Letting the link stretch its child avoids that. */
+        .tile-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+        }
+        .tile-link > .tile { flex: 1 1 auto; width: 100%; }
+        .tile-link:hover .tile {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+        }
+        .tile-link:focus-visible .tile {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+        .tile-pad { padding: 22px; }
+        .tile-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 10px;
+        }
+        .tile h2 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 26px;
+            margin: 0 0 8px;
+            padding: 0;
+            color: var(--ink);
+        }
+        .tile h3 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 20px;
+            margin: 0 0 4px;
+            padding: 0;
+            color: var(--ink);
+        }
+        .tile p {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 15px;
+            line-height: 1.55;
+            color: #333;
+            margin: 0 0 12px;
+        }
+        .tile p:last-child { margin-bottom: 0; }
+
+        /* the "go" line, pinned to the bottom of every tile */
+        .tile-cta {
+            margin-top: auto;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tile-cta::after { content: "\2192"; transition: transform .18s ease; }
+        .tile-link:hover .tile-cta::after { transform: translateX(4px); }
+
+        .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+        .chip {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: #f1f3f3;
+            color: #444;
+            border: 1px solid #e2e5e5;
+        }
+        .tile-dark .chip { background: #2a2a2a; color: #cfcfcf; border-color: #3a3a3a; }
+
+        /* dark tiles, matching the terminal look used elsewhere on the site */
+        .tile-dark { background: #1e1e1e; color: #d4d4d4; }
+        .tile-dark h2, .tile-dark h3 { color: #fff; }
+        .tile-dark p { color: #bdbdbd; }
+
+        /* Calendario and GitHub have no screenshot, so they get a small mock
+           of the real thing instead of an <img>. */
+        .card-mock {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            line-height: 1.6;
+            color: #d4d4d4;
+            white-space: pre;
+            overflow-x: auto;
+            background: #141414;
+            border: 1px solid #2e2e2e;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin: 0 0 14px;
+        }
+        .card-mock .prompt { color: #569cd6; font-weight: 600; }
+        .card-mock .typed  { color: #fff; }
+        .card-mock .event  { color: #9cdcfe; }
+
+        /* ── the grid ────────────────────────────────────── */
+        .lead-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap);
+            align-items: stretch;
+        }
+        .lead-secondary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap);
+        }
+        .lead-secondary > .span-2 { grid-column: 1 / -1; }
+
+        /* min-height rather than height: a tile that needs more room takes
+           it and the other column stretches to match, instead of the two
+           columns drifting out of alignment. */
+        .tile-primary   { min-height: var(--primary-h); }
+        .tile-secondary { min-height: var(--secondary-h); }
+
+        /* screenshot tiles: the image fills the tile, the copy rides on a scrim */
+        .tile-shot { padding: 0; justify-content: flex-end; }
+        .tile-shot img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* biased below the top edge so each screenshot's own nav bar
+               doesn't read as a second nav inside the tile */
+            object-position: 50% 18%;
+            display: block;
+            /* these are shots of light websites - white caption text on a
+               bottom-only scrim was unreadable, so the frame is dimmed too */
+            filter: brightness(0.66) saturate(1.05);
+            transition: transform .35s ease;
+            border-radius: 0;
+        }
+        .tile-link:hover .tile-shot img { transform: scale(1.04); }
+        .shot-caption {
+            position: relative;                     /* paints above the image */
+            padding: 52px 20px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0));
+            color: #fff;
+        }
+        .shot-caption h3 { color: #fff; }
+        .shot-caption p  { color: rgba(255,255,255,0.85); font-size: 13px; margin: 0 0 8px; }
+        .shot-caption .tile-cta { color: #7ee2b8; }
+
+        .feature-list {
+            list-style: none;
+            margin: 0 0 16px;
+            padding: 0;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #bdbdbd;
+        }
+        .feature-list li { padding: 5px 0 5px 18px; position: relative; }
+        .feature-list li::before {
+            content: "+";
+            position: absolute;
+            left: 0;
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent);
+        }
+
+        /* ── closing band ────────────────────────────────── */
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 44px 0 14px;
+        }
+        .section-head h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            color: var(--ink);
+        }
+        .section-head span {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* One full-width band rather than a card per repo: the transcript
+           already names them, so cards alongside it said it twice. */
+        .repo-band {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: center;
+            padding: 28px;
+        }
+        .repo-band .card-mock { margin: 0; }
+
+        /* ── responsive ──────────────────────────────────── */
+        @media (max-width: 900px) {
+            .lead-grid { grid-template-columns: 1fr; }
+            .tile-primary { min-height: 420px; }
+        }
+        @media (max-width: 560px) {
+            .lead-secondary { grid-template-columns: 1fr; }
+            .tile-secondary { min-height: 220px; }
+            .repo-band { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .tile, .tile-shot img, .tile-cta::after { transition: none; }
+        }
+    </style>
+</head>
+<body class="projects-page">
+    <div class="topnav">
+        <a href="https://danielbaez.xyz/">home</a>
+        <div class="nav-dropdown">
+            <button type="button" class="dropdown-toggle active" aria-haspopup="true" aria-expanded="false">projects</button>
+            <div class="dropdown-menu">
+                <a class="active" href="https://danielbaez.xyz/projects">all projects</a>
+                <a href="https://danielbaez.xyz/calendario">Calendario</a>
+                <a href="https://danielbaez.xyz/music">My Music Library</a>
+                <a href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">Daniel B Photos</a>
+                <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">Daniel's Digital Lab</a>
             </div>
-            <a href="https://danielbaez.xyz/about">about</a>
         </div>
-<!--        todo fix header -->
-        <div class="container">
+        <a href="https://danielbaez.xyz/about">about</a>
+    </div>
 
-            <div id="header">
-<!--                <h1 id="home">Hey,there</h1>-->
-                <p> explore curated portals into my universe </p>
-                <!-- <p> Thanks Daniel</p> -->
-            </div>
+    <main class="container">
 
-<!--         Ordered most-recently-worked-on first: Calendario, then music.
-             The boxes alternate text-left / text-right down the page, so
-             reordering means swapping the two halves, not just moving blocks. -->
-            <div class="box" > <!-- box 1-->
-                <div>
-                    <h1>Calendario</h1>
-                    <a href="calendario" target="_self">read the case study</a>
-                </div>
-                <div class="mock-cell">
-                    <a class="mock-link" href="calendario" target="_self">
-                        <!-- TODO: swap this mock for a real screenshot once there is one -->
-                        <div class="card-mock"><span class="prompt">You:</span> <span class="typed">what do I have today?</span>
+        <div id="header">
+            <h1>projects</h1>
+            <p>explore curated portals into my universe</p>
+        </div>
+
+        <!-- Ordered by weight rather than down the page: Calendario is the
+             one with a case study behind it, so it takes the tall tile, and
+             the three portals share the column beside it. -->
+        <section class="lead-grid" aria-label="projects">
+
+            <a class="tile-link" href="calendario" target="_self">
+                <div class="tile tile-primary tile-pad tile-dark">
+                    <p class="tile-label">case study &middot; prototype</p>
+                    <h2>Calendario</h2>
+                    <p>An AI scheduling assistant that answers plain-language questions about your Google Calendar.</p>
+                    <!-- TODO: swap this mock for a real screenshot once there is one -->
+                    <div class="card-mock"><span class="prompt">You:</span> <span class="typed">what do I have today?</span>
 
 Today's Events:
 <span class="event">  - Morning focus block  9:00 AM
   - Team standup  11:00 AM</span></div>
-                    </a>
+                    <ul class="feature-list">
+                        <li>runs as a REPL — you type the way you'd speak</li>
+                        <li>reads and writes: books, moves and cancels events</li>
+                        <li>works out what you meant, then hits the real calendar</li>
+                    </ul>
+                    <div class="chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">Google Calendar API</span>
+                        <span class="chip">Cohere</span>
+                    </div>
+                    <span class="tile-cta">read the case study</span>
                 </div>
-            </div>
+            </a>
 
-            <div class="box"> <!--  box 2-->
-                <div>
-                    <a href="music" target="_self" >
+            <div class="lead-secondary">
+
+                <a class="tile-link span-2" href="music" target="_self">
+                    <div class="tile tile-secondary tile-shot">
                         <img src="assets/images/music.jpg" alt="screenshot of the links of my music" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div>
-                    <h1>my music library</h1>
-                    <a href="music" target="_self"> take this portal</a>
-                </div>
-            </div>
+                        <div class="shot-caption">
+                            <h3>my music library</h3>
+                            <p>Every place you can stream my music — mixes, releases and sets across YouTube, SoundCloud, Spotify and Apple Music.</p>
+                            <span class="tile-cta">take this portal</span>
+                        </div>
+                    </div>
+                </a>
 
-            <div class="box" > <!-- box 3-->
-                <div>
-                    <h1>Daniel B<br> Photos</h1>
-                    <a href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">visit here</a>
-                </div>
-                <div id="img">
-                    <a href="https://danielbphotos.wordpress.com/" target="_blank" rel="noopener">
+                <a class="tile-link" href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">
+                    <div class="tile tile-secondary tile-shot">
                         <img src="assets/images/photo-website.jpg" alt="screenshot of Daniel B Photos website" loading="lazy" decoding="async">
-                    </a>
-                </div>
+                        <div class="shot-caption">
+                            <h3>Daniel B Photos</h3>
+                            <p>The photo journal.</p>
+                            <span class="tile-cta">visit here</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="tile-link" href="https://danielbaez.webflow.io" target="_blank" rel="noopener">
+                    <div class="tile tile-secondary tile-shot">
+                        <img src="assets/images/ddl-website.jpg" alt="screenshot of Daniel's Digital Lab" loading="lazy" decoding="async">
+                        <div class="shot-caption">
+                            <h3>Daniel's Digital Lab</h3>
+                            <p>The Webflow lab, still under construction.</p>
+                            <span class="tile-cta">visit here</span>
+                        </div>
+                    </div>
+                </a>
+
             </div>
+        </section>
 
-<!--             upcoming projects to add -->
-            <div class="box"> <!--  box 4-->
+        <!-- The profile is a portal rather than a project, so it closes the
+             page as one band instead of sitting in the grid above. -->
+        <div class="section-head">
+            <h2>from the repos</h2>
+            <span>the rest lives on GitHub</span>
+        </div>
+
+        <a class="tile-link" href="https://github.com/d-baez" target="_blank" rel="noopener">
+            <div class="tile tile-dark repo-band">
                 <div>
-                    <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">
-                        <img src="assets/images/ddl-website.jpg" alt="Screenshot of daniel's digital" loading="lazy" decoding="async">
-                    </a>
+                    <p class="tile-label">github.com/d-baez</p>
+                    <h2>GitHub</h2>
+                    <p>Everything that never got its own page here.</p>
+                    <span class="tile-cta">browse the repos</span>
                 </div>
-                <div>
-                    <h1>Daniel's Digital lab</h1>
-                    <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">Visit here</a>
-                </div>
-            </div>
+                <!-- A mock rather than a screenshot on purpose: a picture of
+                     GitHub's own UI would go stale every time they redesign.
 
-<!--         The profile is a portal rather than a project, so it sits last
-             alongside the other external destinations. Box 4 leads with its
-             image, so this one leads with text to keep the alternation. -->
-            <div class="box"> <!-- box 5-->
-                <div>
-                    <h1>GitHub</h1>
-                    <a href="https://github.com/d-baez" target="_blank" rel="noopener">browse the repos</a>
-                </div>
-                <div class="mock-cell">
-                    <a class="mock-link" href="https://github.com/d-baez" target="_blank" rel="noopener">
-                        <!-- A mock rather than a screenshot on purpose: a picture of
-                             GitHub's own UI would go stale every time they redesign.
-
-                             Deliberately not dressed up as `gh repo list` output -
-                             that command sorts by last update, which would surface
-                             the profile-readme repo and a course repo rather than
-                             these. This is a hand-picked five, so it says so. The
-                             names, languages and the count are real. -->
-                        <div class="card-mock"><span class="prompt">github.com/d-baez</span>
-
-d-baez.github.io          <span class="event">HTML</span>
+                     Deliberately not dressed up as `gh repo list` output -
+                     that command sorts by last update, which would surface
+                     the profile-readme repo and a course repo rather than
+                     these. This is a hand-picked five, so it says so. The
+                     names, languages and the count are real. -->
+                <div class="card-mock">d-baez.github.io          <span class="event">HTML</span>
 capstone                  <span class="event">Python</span>
 Sound-board               <span class="event">Swift</span>
 Ricoh-Resource-Monitor    <span class="event">Python</span>
                          
 <span class="typed">13 public repositories</span></div>
-                    </a>
-                </div>
             </div>
+        </a>
 
+    </main>
 
-        </div>
-
+    <footer class="footer">
+        <small>&copy; Copyright 2026, Daniel Báez</small>
+    </footer>
 
 <script src="assets/js/nav.js"></script>
 </body>
- <footer class="footer">
- <small>&copy; Copyright 2026, Daniel Báez</small>
- </footer>
 </html>
