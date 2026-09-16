@@ -82,15 +82,15 @@
         /* ── photo gallery ─────────────────────────────────── */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
             margin: 0;
             padding: 0;
             list-style: none;
         }
         .gallery li { margin: 0; }
         .gallery figure { margin: 0; height: 100%; }
-        .gallery img { height: 230px; object-fit: cover; }
+        .gallery img { height: 320px; object-fit: cover; }
     </style>
 </head>
 <body class="los-cedros-page">
@@ -109,7 +109,7 @@
     <a href="https://danielbaez.xyz/about">about</a>
 </div>
 
-<main>
+<main data-lightbox>
     <h1>Mi Vista fue corta pero, si aprendi mucho</h1>
     <p>El bosque es una funte di vida. Es donde los rios pasan y dan vida a todo la communidad de los Cedros y las communidas cerca.
     es lo que da vida a los miles especias de orchidias. vida a los miles aves que son nativos de esta terria.</p>
@@ -132,7 +132,7 @@
 
     <figure>
         <img src="assets/images/los-cedros/los-cedros-drone.jpg" alt="Aerial drone photo of the Los Cedros forest ridge line" loading="lazy" decoding="async">
-        <figcaption>the ridge line, from the drone</figcaption>
+        <figcaption>volando sobre nosotros</figcaption>
     </figure>
 
     <figure>
@@ -155,7 +155,7 @@
         <li>
             <figure>
                 <img src="assets/images/los-cedros/los-cedros-river-pool.jpg" alt="A clear river pool in the Los Cedros forest" loading="lazy" decoding="async">
-                <figcaption>a pool along the river</figcaption>
+                <figcaption>poso de miel</figcaption>
             </figure>
         </li>
         <li>
@@ -167,25 +167,25 @@
         <li>
             <figure>
                 <img src="assets/images/los-cedros/los-cedros-bird.jpg" alt="A bird spotted through a scope in the Los Cedros forest" loading="lazy" decoding="async">
-                <figcaption>one of the miles de aves</figcaption>
+                <figcaption>un gallo de la peña </figcaption>
             </figure>
         </li>
         <li>
             <figure>
                 <img src="assets/images/los-cedros/los-cedros-artifact.jpg" alt="A carved stone artifact found on the forest floor at Los Cedros" loading="lazy" decoding="async">
-                <figcaption>a carved stone on the trail</figcaption>
+                <figcaption>Artifact de Los yumbos</figcaption>
             </figure>
         </li>
         <li>
             <figure>
                 <img src="assets/images/los-cedros/los-cedros-group.jpg" alt="Daniel with two friends at the Los Cedros research station" loading="lazy" decoding="async">
-                <figcaption>the crew at the station</figcaption>
+                <figcaption>las amigas durante mi estadía</figcaption>
             </figure>
         </li>
         <li>
             <figure>
                 <img src="assets/images/los-cedros/los-cedros-waterfall.jpg" alt="A small waterfall in the Los Cedros forest" loading="lazy" decoding="async">
-                <figcaption>a waterfall on the trail</figcaption>
+                <figcaption>una casacada</figcaption>
             </figure>
         </li>
     </ul>
@@ -196,5 +196,6 @@
 </footer>
 
 <script src="assets/js/nav.js"></script>
+<script src="assets/js/lightbox.js"></script>
 </body>
 </html>
