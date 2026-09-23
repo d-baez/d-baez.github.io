@@ -32,8 +32,12 @@
     <link rel="stylesheet" href="assets/css/styleguide.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans&family=Libre+Franklin:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- One request for only the families this page uses, loaded without
+         blocking first paint: it starts as a preload and becomes a
+         stylesheet once it arrives. Text shows in the fallback font until
+         then (display=swap). noscript keeps it working with JS off. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=Libre+Franklin:ital,wght@0,400;1,400;1,600&family=MuseoModerno:wght@100;300&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=Libre+Franklin:ital,wght@0,400;1,400;1,600&family=MuseoModerno:wght@100;300&display=swap"></noscript>
 
     <style>
         html {
@@ -163,7 +167,7 @@
         <small>&copy; Copyright 2026, Daniel Báez</small>
     </footer>
 
-    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/nav.js" defer></script>
     <script src="assets/js/terminal.js" defer></script>
     <!-- The only third-party script on the site. The version is pinned, but a
          pin alone only fixes which file is asked for - it can't tell whether
@@ -174,14 +178,18 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"
             integrity="sha384-0k1dj5tm+KUH/4vkNk/i90XsjDA8Ltmt+ybcrFoH4t0dgv/WZsPpVBnkhcroX8UL"
             crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
+            referrerpolicy="no-referrer" defer></script>
     <script>
+        // The tilt script is deferred so it doesn't hold up first paint;
+        // deferred scripts run before DOMContentLoaded, so init waits for it.
         // integrity blocks the script outright on a mismatch, so VanillaTilt
         // may never be defined. Guarding keeps that case to a missing tilt
         // effect rather than a ReferenceError.
-        if (typeof VanillaTilt !== "undefined") {
-            VanillaTilt.init(document.querySelector(".box3"));
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof VanillaTilt !== "undefined") {
+                VanillaTilt.init(document.querySelector(".box3"));
+            }
+        });
     </script>
 </body>
 </html>
