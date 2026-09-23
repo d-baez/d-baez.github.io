@@ -31,6 +31,84 @@
   <link rel="stylesheet" href="assets/css/style.css"/>
   <link rel="stylesheet" href="assets/css/styleguide.css" />
 
+  <style>
+    .apple-music-embed {
+      display: block;
+      width: 100%;
+      max-width: 660px;
+      margin: 24px auto 0;
+      overflow: hidden;
+      background: transparent;
+      border-radius: 10px;
+    }
+    .apple-music-link { margin: 8px 0 0; font-size: 12px; }
+    .apple-music-link a { color: #555; }
+
+    /* ── past events ─────────────────────────────────── */
+    .past-events {
+      max-width: 900px;
+      margin: 48px auto 56px;
+      padding: 0 16px;
+      text-align: left;
+    }
+    .past-events h2 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.6rem;
+      margin: 0 0 20px;
+      padding: 0;
+      text-align: center;
+    }
+    .event {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 20px;
+      margin: 0 0 24px;
+    }
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #555;
+    }
+    .event-meta > * {
+      background: #f1f1f1;
+      border-radius: 999px;
+      padding: 2px 10px;
+    }
+    .event h3 { margin: 10px 0 8px; font-size: 1.25rem; }
+    .event-list {
+      margin: 0 0 4px;
+      padding: 0;
+      list-style: none;
+    }
+    .event-list li { padding: 4px 0; border-bottom: 1px solid #eee; }
+    .event-list li:last-child { border-bottom: 0; color: #777; }
+    .event-list span { display: block; font-size: 13px; color: #666; }
+    .event-photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .event-photos figure { margin: 0; }
+    .event-photos figure:only-child { max-width: 400px; }
+    .event-photos img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .event-photos figcaption {
+      margin-top: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
   <div class="topnav">
@@ -73,49 +151,48 @@
     <!-- SoundCloud Embed -->
     <iframe width="auto" height="450"  frameborder="0" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1971802152&color=%231342bd&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djdaledanny" title="dj dalé danny" target="_blank" style="color: #cccccc; text-decoration: none;" rel="noopener">dj dalé danny</a> · <a href="https://soundcloud.com/djdaledanny/sets/my-mixes" title="My Mixes" target="_blank" style="color: #cccccc; text-decoration: none;" rel="noopener">My Mixes</a></div>
     <!-- Apple Music Embed -->
-    <!--
-    <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/artist/dj-dale-danny/1738121003"></iframe>
-     -->
+    <iframe class="apple-music-embed" title="dj dalé danny on Apple Music" allow="autoplay *; encrypted-media *;" frameborder="0" height="450" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/artist/dj-dale-danny/1738121003"></iframe>
+    <p class="apple-music-link"><a href="https://music.apple.com/us/artist/dj-dale-danny/1738121003" target="_blank" rel="noopener">listen on Apple Music</a></p>
   </div>
 
-<!-- language: html -->
 <section id="past-events" class="past-events">
-  <h1>Past events</h1>
+  <h2>Past events</h2>
 
   <article class="event">
-    <h3>Rutgers University : Cultural Centers</h3>
-    <p>
-      Events including: Center for Latino Art and Culture: Welcome to la Familia;
-      Center for Social Justice and Education: Open House; Paul Robeson Cultural Center: Rites of Passage ; and more.
-    </p>
     <div class="event-meta">
       <!-- Add real date(s) if available -->
       <time datetime="2025">2025</time>
       <span class="event-location">Rutgers University</span>
     </div>
-    <div class="past-events-images">
+    <h3>Rutgers University Cultural Centers</h3>
+    <ul class="event-list">
+      <li>Welcome to la Familia <span>Center for Latino Arts and Culture</span></li>
+      <li>Open House <span>Center for Social Justice and Education</span></li>
+      <li>Rites of Passage <span>Paul Robeson Cultural Center</span></li>
+      <li>and more</li>
+    </ul>
+    <div class="event-photos">
       <figure>
-        <img src="assets/images/welcometolafamilia-djdaledanny.jpeg" alt="DJ Dalé Danny performing at Welcome to la Familia" class="past-event-image" />
+        <img src="assets/images/welcometolafamilia-djdaledanny.jpeg" alt="DJ Dalé Danny performing at Welcome to la Familia" loading="lazy" decoding="async">
         <figcaption>Welcome to la Familia</figcaption>
       </figure>
       <figure>
-        <img src="assets/images/RoP-djdaledanny.jpeg" alt="DJ Dalé Danny performing at Rites of Passage" class="past-event-image" />
+        <img src="assets/images/RoP-djdaledanny.jpeg" alt="DJ Dalé Danny performing at Rites of Passage" loading="lazy" decoding="async">
         <figcaption>Rites of Passage</figcaption>
       </figure>
     </div>
   </article>
 
   <article class="event">
-    <h3>NJ Queeribbean Music Fest</h3>
-    <p>Performed at NJ Queeribbean Music Fest</p>
     <div class="event-meta">
       <!-- Replace with actual date -->
-      <time datetime="2025"> Summer 2025</time>
+      <time datetime="2025">Summer 2025</time>
       <span class="event-location">New Jersey</span>
     </div>
-    <div class="past-events-images">
+    <h3>NJ Queeribbean Music Fest</h3>
+    <div class="event-photos">
       <figure>
-        <img src="assets/images/njqueeribbean-djdaledanny.jpeg" alt="DJ Dalé Danny performing at NJ Queeribbean Music Fest" class="past-event-image past-event-image-lg" />
+        <img src="assets/images/njqueeribbean-djdaledanny.jpeg" alt="DJ Dalé Danny performing at NJ Queeribbean Music Fest" loading="lazy" decoding="async">
         <figcaption>NJ Queeribbean Music Fest</figcaption>
       </figure>
     </div>
