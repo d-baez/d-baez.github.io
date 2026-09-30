@@ -204,6 +204,56 @@
     transform: translate(-30px, -2px);
 }
 
+.imessage p.from-me a {
+    color: #fff;
+    text-decoration: none;
+}
+.imessage p.from-me a:hover,
+.imessage p.from-me a:focus-visible { text-decoration: underline; }
+
+/* es/en switch in the corner of the pensamiento card */
+.box3 { position: relative; }
+.lang-toggle {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    padding: 2px;
+    background: #e5e5ea;
+    border-radius: 999px;
+}
+.lang-toggle button {
+    border: 0;
+    background: transparent;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font: 12px -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #555;
+    cursor: pointer;
+}
+.lang-toggle button[aria-pressed="true"] {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.lang-toggle button:focus-visible { outline: 2px solid #248bf5; outline-offset: 1px; }
+
+/* Photo sent as its own bubble, like a picture message */
+.imessage-photo {
+    align-self: flex-end;
+    display: block;
+    width: 180px;
+    margin: 0.6rem 0 0.1rem;
+    border-radius: 1.15rem;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.imessage-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .code-comment { color: #6a9955; }
 .code-keyword { color: #c586c0; }
 .code-var { color: #4ec9b0; }
