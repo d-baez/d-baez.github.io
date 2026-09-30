@@ -44,14 +44,62 @@
     .apple-music-link { margin: 8px 0 0; font-size: 12px; }
     .apple-music-link a { color: #555; }
 
+    /* ── releases ────────────────────────────────────── */
+    .releases { margin-bottom: 0; }
+    .release-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 16px;
+      color: inherit;
+      text-decoration: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .release-card:hover,
+    .release-card:focus-visible {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.16);
+      transform: translateY(-2px);
+    }
+    .release-card img {
+      flex-shrink: 0;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .release-card h3 {
+      font-family: "Trap-Bold", Helvetica, sans-serif;
+      font-size: 1.4rem;
+      margin: 8px 0 4px;
+    }
+    .release-card p { margin: 0 0 10px; color: #444; }
+    .release-cta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #03875a;
+    }
+    @media (max-width: 520px) {
+      .release-card { flex-direction: column; align-items: flex-start; }
+      .release-card img { width: 100%; height: auto; aspect-ratio: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .release-card { transition: none; }
+      .release-card:hover, .release-card:focus-visible { transform: none; }
+    }
+
     /* ── past events ─────────────────────────────────── */
-    .past-events {
+    .past-events,
+    .releases {
       max-width: 900px;
       margin: 48px auto 56px;
       padding: 0 16px;
       text-align: left;
     }
-    .past-events h2 {
+    .past-events h2,
+    .releases h2 {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 1.6rem;
       margin: 0 0 20px;
@@ -127,7 +175,7 @@
   </div>
 
 <div>
-  <img src="assets/images/dj-logo-banner.png" alt="dalé danny logo" style="width: 100%; height: auto;"
+  <img src="assets/images/dj-logo-banner.png" alt="dale danny logo" style="width: 100%; height: auto;"
         height="1569" width="5240"/>
 </div>
   <div id="header">
@@ -149,11 +197,28 @@
     </div>
     <br>
     <!-- SoundCloud Embed -->
-    <iframe width="auto" height="450"  frameborder="0" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1971802152&color=%231342bd&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djdaledanny" title="dj dalé danny" target="_blank" style="color: #cccccc; text-decoration: none;" rel="noopener">dj dalé danny</a> · <a href="https://soundcloud.com/djdaledanny/sets/my-mixes" title="My Mixes" target="_blank" style="color: #cccccc; text-decoration: none;" rel="noopener">My Mixes</a></div>
+    <iframe width="auto" height="450"  frameborder="0" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1971802152&color=%231342bd&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djdaledanny" title="dj dale danny" target="_blank" style="color: #cccccc; text-decoration: none;" rel="noopener">dj dale danny</a> · <a href="https://soundcloud.com/djdaledanny/sets/my-mixes" title="My Mixes" target="_blank" style="color: #cccccc; text-decoration: none;" rel="noopener">My Mixes</a></div>
     <!-- Apple Music Embed -->
-    <iframe class="apple-music-embed" title="dj dalé danny on Apple Music" allow="autoplay *; encrypted-media *;" frameborder="0" height="450" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/artist/dj-dale-danny/1738121003"></iframe>
+    <iframe class="apple-music-embed" title="dj dale danny on Apple Music" allow="autoplay *; encrypted-media *;" frameborder="0" height="450" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/artist/dj-dale-danny/1738121003"></iframe>
     <p class="apple-music-link"><a href="https://music.apple.com/us/artist/dj-dale-danny/1738121003" target="_blank" rel="noopener">listen on Apple Music</a></p>
   </div>
+
+<section id="releases" class="releases">
+  <h2>Releases</h2>
+
+  <a class="release-card" href="https://danielbaez.xyz/body-extended">
+    <img src="assets/images/body-remix-album-cover.jpg" alt="" width="160" height="160" loading="lazy" decoding="async">
+    <div>
+      <div class="event-meta">
+        <span>single</span>
+        <span>with caddy</span>
+      </div>
+      <h3>BODY // dropthepin</h3>
+      <p>Born in a friend's bedroom studio, then reworked from a live demo set into an extended version.</p>
+      <span class="release-cta">listen + the story behind it &rarr;</span>
+    </div>
+  </a>
+</section>
 
 <section id="past-events" class="past-events">
   <h2>Past events</h2>
@@ -173,11 +238,11 @@
     </ul>
     <div class="event-photos">
       <figure>
-        <img src="assets/images/welcometolafamilia-djdaledanny.jpeg" alt="DJ Dalé Danny performing at Welcome to la Familia" loading="lazy" decoding="async">
+        <img src="assets/images/welcometolafamilia-djdaledanny.jpeg" alt="DJ Dale Danny performing at Welcome to la Familia" loading="lazy" decoding="async">
         <figcaption>Welcome to la Familia</figcaption>
       </figure>
       <figure>
-        <img src="assets/images/RoP-djdaledanny.jpeg" alt="DJ Dalé Danny performing at Rites of Passage" loading="lazy" decoding="async">
+        <img src="assets/images/RoP-djdaledanny.jpeg" alt="DJ Dale Danny performing at Rites of Passage" loading="lazy" decoding="async">
         <figcaption>Rites of Passage</figcaption>
       </figure>
     </div>
@@ -192,7 +257,7 @@
     <h3>NJ Queeribbean Music Fest</h3>
     <div class="event-photos">
       <figure>
-        <img src="assets/images/njqueeribbean-djdaledanny.jpeg" alt="DJ Dalé Danny performing at NJ Queeribbean Music Fest" loading="lazy" decoding="async">
+        <img src="assets/images/njqueeribbean-djdaledanny.jpeg" alt="DJ Dale Danny performing at NJ Queeribbean Music Fest" loading="lazy" decoding="async">
         <figcaption>NJ Queeribbean Music Fest</figcaption>
       </figure>
     </div>
