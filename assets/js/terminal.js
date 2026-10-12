@@ -261,7 +261,7 @@
             // contact page: the addresses themselves.
             print('reach me:', 'term-note');
             out(row('email', link('hello@danielbaez.xyz', 'mailto:hello@danielbaez.xyz')));
-            out(row('instagram', link('@_danielbaez', 'https://instagram.com/_danielbaez', true)));
+            out(row('instagram', link('@danielbaez.xyz', 'https://instagram.com/danielbaez.xyz', true)));
             out(row('linkedin', link('/in/-danielbaez', 'https://linkedin.com/in/-danielbaez/', true)));
             out(row('github', link('@d-baez', 'https://github.com/d-baez', true)));
             blank();
