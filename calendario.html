@@ -254,6 +254,17 @@
             max-width: 36em;
         }
 
+        /* delete_event is wired up but still being tested — dashed outline marks it. */
+        .cal-pill-testing {
+            border-style: dashed;
+            color: var(--cal-muted);
+        }
+
+        .cal-pill-testing small {
+            font-size: inherit;
+            opacity: 0.8;
+        }
+
         .cal-back {
             display: inline-block;
             margin-top: 36px;
@@ -348,7 +359,8 @@
         <p>
             It runs as a REPL. You type in plain language; it works out what you
             meant, hits your real calendar, and prints the answer. It reads and
-            writes — booking, moving and cancelling events, not just listing them.
+            writes — booking and moving events, not just listing them. Cancelling
+            events is the newest piece and is still being tested.
         </p>
 
         <div class="code-window">
@@ -399,11 +411,15 @@ Starts at 09:00 AM — in 40 minutes</code></pre>
             <li class="cal-pill">analyze_week</li>
             <li class="cal-pill">create_event</li>
             <li class="cal-pill">modify_event</li>
-            <li class="cal-pill">delete_event</li>
+            <li class="cal-pill cal-pill-testing">delete_event <small>· testing</small></li>
             <li class="cal-pill">analyze_schedule</li>
             <li class="cal-pill">next_action</li>
             <li class="cal-pill">free_question</li>
         </ul>
+        <p class="cal-note">
+            Create and modify are live. <code>delete_event</code> is still being
+            tested, so cancelling events isn't considered working yet.
+        </p>
     </section>
 
     <section class="cal-section">
