@@ -36,28 +36,236 @@
             font-size: 1.25em;
             letter-spacing: 0.05em;
         }
+
+        .security-page main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 32px 24px 56px;
+            text-align: left;
+            font-family: 'Libre Franklin', sans-serif;
+            color: #232323;
+            line-height: 1.6;
+        }
+        .security-page h1,
+        .security-page h2,
+        .security-page h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            color: #1a1a1a;
+        }
+        .security-page h1 {
+            font-size: clamp(1.5rem, 4vw, 2.1rem);
+            margin: 0 0 18px;
+            padding: 0;
+        }
+        .security-page h2 {
+            font-size: 1.2rem;
+            margin: 0 0 12px;
+            padding: 0;
+        }
+        .security-page h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #555;
+            margin: 0 0 16px;
+            padding: 0;
+        }
+        .security-page p { margin: 0 0 16px; }
+        .security-page .post-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: #555;
+        }
+        .security-page blockquote {
+            margin: 24px 0;
+            padding: 4px 20px;
+            border-left: 3px solid #04AA6D;
+            color: #444;
+            font-style: italic;
+        }
+
+        .security-page section {
+            margin: 48px 0 0;
+            padding-top: 32px;
+            border-top: 1px solid #d6d6d6;
+        }
+
+        /* ── CIA triad cards ───────────────────────────────── */
+        .cia-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .cia-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 20px;
+        }
+        .cia-letter {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #03875a;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .cia-name {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            margin: 0 0 8px;
+        }
+        .cia-card p { font-size: 15px; margin: 0; }
+
+        /* ── cookies pull quote ────────────────────────────── */
+        .pull-quote {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            border-left: 3px solid #04AA6D;
+            padding: 4px 20px;
+            margin: 0 0 24px;
+            color: #1a1a1a;
+        }
+
+        /* ── call to action checklist ──────────────────────── */
+        .cta-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 24px 0 0;
+        }
+        .cta-group {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 20px;
+        }
+        .cta-group h3 {
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin: 0 0 12px;
+        }
+        .cta-group ul {
+            margin: 0;
+            padding: 0 0 0 18px;
+            font-size: 15px;
+        }
+        .cta-group li { margin: 0 0 8px; }
+
+        .closing {
+            margin: 48px 0 0;
+            padding-top: 24px;
+            border-top: 1px solid #d6d6d6;
+            font-family: 'IBM Plex Mono', monospace;
+            color: #555;
+        }
     </style>
 </head>
-<body>
+<body class="security-page">
 <div class="topnav">
     <a href="https://danielbaez.xyz/">home</a>
     <div class="nav-dropdown">
         <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">projects</button>
         <div class="dropdown-menu">
             <a href="https://danielbaez.xyz/projects">all projects</a>
+            <hr class="dropdown-sep">
             <a href="https://danielbaez.xyz/calendario">Calendario</a>
+            <a href="https://danielbaez.xyz/los-cedros">Los Cedros</a>
             <a href="https://danielbaez.xyz/music">My Music Library</a>
-            <a href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">Daniel B Photos</a>
-            <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">Daniel's Digital Lab</a>
+            <hr class="dropdown-sep">
+            <a href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">Daniel B Photos <span aria-hidden="true">↗</span></a>
+            <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">Daniel's Digital Lab <span aria-hidden="true">↗</span></a>
         </div>
     </div>
+    <a href="https://danielbaez.xyz/research">research</a>
     <a href="https://danielbaez.xyz/about">about</a>
 </div>
 
-<h1>in todays day, when big data is something nontangible; who thinks twice to protect it? </h1>
-<p class="post-date"><time datetime="2026-10">October 2026</time></p>
-<blockquote>where is our <span class="big-data">'big data'</span> going </blockquote>
-<p>Data that is consistently being collections and stored is often used to enhance the UX, but to what scope. what profiles have companies built of the data they have collect from you.  </p>
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>in todays day, when big data is something nontangible; who thinks twice to protect it? </h1>
+        <p class="post-date"><time datetime="2026-10">October 2026</time></p>
+        <blockquote>where is our <span class="big-data">'big data'</span> going </blockquote>
+        <p>Data that is consistently being collected and stored is often used to enhance the UX, but to what scope. What profiles have companies built of the data they have collected from you.</p>
+    </section>
+
+    <!-- CIA triad -->
+    <section class="cia">
+        <h2>In my network security class we discuss the CIA triage mean in security terms.</h2>
+        <ul class="cia-grid">
+            <li class="cia-card">
+                <span class="cia-letter" aria-hidden="true">C</span>
+                <h3 class="cia-name">Confidentiality</h3>
+                <p>How Confidentiality is , how  secure your sensitive data is protects. How many UIDs have programs, services, clients collected about you?</p>
+            </li>
+            <li class="cia-card">
+                <span class="cia-letter" aria-hidden="true">I</span>
+                <h3 class="cia-name">Integrity</h3>
+                <p>How integrity, is how accessible or trustworthy a service or request to read/see/collect your data. is your information a quick search or cmd+f away from being sought out.</p>
+            </li>
+            <li class="cia-card">
+                <span class="cia-letter" aria-hidden="true">A</span>
+                <h3 class="cia-name">Availability</h3>
+                <p>How Availability, is which users/agents have access to what systems you are currently using.</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Cookies -->
+    <section class="cookies">
+        <h2>when you visit a website, which cookies are you letting them munch on?</h2>
+        <p class="pull-quote">let's admit it, we all hit confirm to those annoying banners, just to get them out the way; but what tracking are you really letting have access. because some cookies, even continue to track you once you leave their websites to see what else you are looking at</p>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta">
+        <h2>Call to action</h2>
+        <h3>things you can do to be proactive about your personal data</h3>
+        <div class="cta-groups">
+            <div class="cta-group">
+                <h3>Accounts</h3>
+                <ul>
+                    <li>Use strong, unique passwords for each of your accounts and consider using a password manager.</li>
+                    <li>Enable two-factor authentication (2FA) wherever possible for an added layer of security.</li>
+                    <li>Be aware of phishing scams and avoid clicking on suspicious links or attachments.</li>
+                </ul>
+            </div>
+            <div class="cta-group">
+                <h3>Network &amp; devices</h3>
+                <ul>
+                    <li>Use a VPN to encrypt your internet traffic and hide your IP address.</li>
+                    <li>Regularly update your software and devices to patch security vulnerabilities.</li>
+                    <li>Regularly back up your important data to protect against data loss or ransomware attacks.</li>
+                </ul>
+            </div>
+            <div class="cta-group">
+                <h3>Privacy</h3>
+                <ul>
+                    <li>Be cautious about the information you share online and on social media platforms.</li>
+                    <li>Review and manage your privacy settings on websites and apps to limit data collection.</li>
+                    <li>Consider using ad blockers and anti-tracking tools to reduce online tracking.</li>
+                    <li>Educate yourself about online security best practices and stay informed about the latest threats and trends in cybersecurity.</li>
+                </ul>
+            </div>
+            <div class="cta-group">
+            <h3>access</h3>
+            <ul>
+                <li>Review and manage your privacy settings on websites and apps to limit data collection.</li>
+
+            </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <small>&copy; Copyright 2026, Daniel Báez</small>
+</footer>
 
 <script src="assets/js/nav.js"></script>
 </body>
