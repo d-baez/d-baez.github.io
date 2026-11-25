@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-es="Daniel Báez — Investigación">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -185,16 +185,44 @@
             .stats { grid-template-columns: repeat(2, 1fr); }
             .pipeline .arrow { display: none; }
         }
+
+        /* EN | ES switch */
+        .back-nav { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle {
+            margin-left: auto;
+            display: inline-flex;
+            border: 1px solid #ccc;
+            border-radius: 999px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .lang-toggle button {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            padding: 3px 10px;
+            border: 0;
+            background: transparent;
+            color: #555;
+            cursor: pointer;
+        }
+        .lang-toggle button[aria-pressed="true"] { background: #111; color: #fff; }
+        .lang-toggle button:focus-visible { outline: 2px solid #04AA6D; outline-offset: 2px; }
+        @media print { .back-nav { display: none; } }
     </style>
 </head>
 <body>
 
 <nav class="back-nav">
-    <a href="https://danielbaez.xyz/">← home</a>
-    <a href="https://danielbaez.xyz/resume">resume</a>
+    <a href="https://danielbaez.xyz/"><span data-lang="en">← home</span><span data-lang="es" lang="es" hidden>← inicio</span></a>
+    <a href="https://danielbaez.xyz/resume"><span data-lang="en">resume</span><span data-lang="es" lang="es" hidden>currículum</span></a>
+    <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
+    </div>
 </nav>
 
-<main class="page">
+<main>
+<article class="page" lang="en" data-lang="en">
 
     <header class="profile-header">
         <h1>Daniel Báez</h1>
@@ -380,6 +408,196 @@
         </ul>
     </section>
 
+</article>
+
+<article class="page" lang="es" data-lang="es" hidden>
+
+    <header class="profile-header">
+        <h1>Daniel Báez</h1>
+        <div class="role">Licenciatura (B.S.) en Ingeniería Eléctrica y de Computadoras, Universidad Rutgers (dic. 2026)</div>
+        <div class="links">
+            <a href="mailto:daniel.baez(at)rutgers.edu">daniel.baez(at)rutgers.edu</a>
+            <span>●</span>
+            <a href="https://linkedin.com/in/-danielbaez/" target="_blank" rel="noopener">LinkedIn</a>
+            <span>●</span>
+            <a href="https://github.com/d-baez" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-title">Intereses de investigación</div>
+        <p>Trabajo en llevar modelos de aprendizaje automático fuera del escritorio y hacia hardware pequeño y de bajo costo, donde pueden hacer mediciones que normalmente se hacen a ojo o por intuición. Ahora mismo eso significa dos cosas: comprobar si las defensas pensadas para proteger las aplicaciones de LLM contra la inyección de prompts realmente funcionan en modelos locales pequeños, y crear herramientas de IA que la gente usa a diario. Antes de eso, mi proyecto final combinó visión por computadora y radar para que un dispositivo portátil pudiera estimar la madurez de una sandía sin abrirla.
+
+        También me interesan la energía sostenible, las comunicaciones de bajo consumo como Meshstatics, la energía regenerativa y la tecnología ambiental.</p>
+        <ul class="tags">
+            <li>IA en el borde (edge AI)</li>
+            <li>visión por computadora embebida</li>
+            <li>cuantización de modelos</li>
+            <li>detección multimodal</li>
+            <li>seguridad de LLM</li>
+            <li>inyección de prompts</li>
+            <li>tecnología agrícola</li>
+            <li>procesamiento de señales RF / radar</li>
+        </ul>
+    </section>
+
+    <section>
+        <div class="section-title">Investigación actual</div>
+
+        <div class="project-title" id="prompt-injection-es">Evaluación de defensas contra ataques de inyección de prompts</div>
+        <div class="project-meta">
+            <span class="org">ECE 424, Universidad Rutgers</span> · Otoño de 2026 · con Michael Cardenas
+        </div>
+
+        <p>Cuando una aplicación de LLM inserta texto no confiable (una reseña, un correo, una página web) en su prompt, ese texto puede traer instrucciones propias. Medimos qué tan bien lo evitan las defensas publicadas en modelos pequeños de pesos abiertos ejecutados localmente. Partimos del toolkit Open-Prompt-Injection (Liu et al., USENIX Security 2024) sin modificar su código de defensas.</p>
+
+        <div class="stats" role="list">
+            <div class="stat" role="listitem"><div class="num">150</div><div class="label">experimentos: 5 ataques × 10 defensas × 3 modelos</div></div>
+            <div class="stat" role="listitem"><div class="num">~48K</div><div class="label">llamadas al modelo, todas locales con Ollama</div></div>
+            <div class="stat" role="listitem"><div class="num">98,0 %</div><div class="label">éxito de ataque en qwen3:8b, sin defensa</div></div>
+            <div class="stat" role="listitem"><div class="num">0,4 %</div><div class="label">Mistral 7B, mismos ataques</div></div>
+        </div>
+
+        <h3>Configuración</h3>
+        <p>La tarea objetivo es clasificar el sentimiento de 100 reseñas de SST-2, separadas de los 20 casos usados para ajustar. La instrucción inyectada le pide al modelo que imprima la palabra <code>INJECTED</code> y nada más. Así el éxito no deja dudas: un ataque cuenta solo si la salida es exactamente esa palabra, de modo que un error de clasificación común no puede confundirse con un ataque exitoso, una confusión que demostramos en la configuración original. Modelos: qwen3:8b, Mistral 7B y Llama 3.1 8B, con temperatura 0 e intervalos de Wilson al 95 % en cada celda.</p>
+
+        <h3>Resultados</h3>
+        <ul class="bullets">
+            <li><strong>Los modelos difieren más que las defensas.</strong> Sin defensa, qwen3 siguió la inyección el 98,0 % de las veces, Llama 3.1 el 42,8 % y Mistral el 0,4 %.</li>
+            <li><strong>Las defensas que envuelven el prompt solo ayudan en parte.</strong> Las variantes instruccional, con delimitadores, XML, sándwich y de secuencia aleatoria dejaron el éxito de ataque en qwen entre el 61 % y el 98 %. Los ataques de falsa finalización y combinado tuvieron éxito en 100 de 100 casos contra las cinco.</li>
+            <li><strong>Las defensas basadas en detección funcionaron en qwen, con salvedades.</strong> La detección por respuesta conocida (known-answer) y la basada en la respuesta bloquearon todos los ataques sin bloquear prompts limpios. Pero la basada en la respuesta solo funciona porque <code>INJECTED</code> no es una etiqueta válida; known-answer bloqueó todos los prompts en Mistral por un error de coincidencia exacta (un espacio inicial), y en Llama no detectó la mayoría de los ataques de falsa finalización.</li>
+            <li><strong>La paráfrasis obtuvo 0 % porque borraba la reseña.</strong> Todas las respuestas atacadas colapsaron en la misma etiqueta, así que no es un resultado de defensa utilizable.</li>
+            <li><strong>Un resultado inicial era un error.</strong> La aparente robustez de qwen a mitad del proyecto venía de que su modo de razonamiento (“thinking”) seguía activado. Al desactivarlo, el éxito por coincidencia exacta subió de 191 a 542 de 1.000.</li>
+        </ul>
+
+        <h3>Mi aporte</h3>
+        <ul class="bullets">
+            <li>Construí el ejecutor local con Ollama y las configuraciones de los modelos, diseñé la tarea <code>INJECTED</code> de coincidencia exacta y las matrices de experimentos, y separé el conjunto final independiente de 100 casos.</li>
+            <li>Encontré y corregí el error del modo thinking de qwen, hice que el evaluador contara correctamente las respuestas bloqueadas y ejecuté los barridos finales de qwen y Mistral.</li>
+            <li>Redacté el índice de evidencia que vincula cada afirmación con sus datos y su commit, congelado como una versión etiquetada.</li>
+            <li>Creé una animación interactiva de los ataques, disponible en <a href="https://db444.xyz/attack-demo/" target="_blank" rel="noopener">db444.xyz/attack-demo</a>.</li>
+        </ul>
+
+        <p class="note" style="margin-top:0.8rem;">Código y evidencia: <a href="https://github.com/d-baez/prompt-injection-proj" target="_blank" rel="noopener">github.com/d-baez/prompt-injection-proj</a>. Se basa en Y. Liu et al., “Formalizing and Benchmarking Prompt Injection Attacks and Defenses,” <em>USENIX Security</em>, 2024.</p>
+    </section>
+
+    <section>
+        <div class="section-title">Proyecto actual de IA</div>
+
+        <div class="project-title">Calendario: un asistente de agenda con IA</div>
+        <div class="project-meta">
+            <span class="org">Proyecto independiente</span> · 2025–presente
+        </div>
+        <p>Un asistente de chat para tu calendario. Cada mensaje va a un modelo de Cohere (Command R7B) que entiende qué estás pidiendo y extrae los detalles: fechas, horas, nombres de eventos. Luego la app responde a partir de tu Google Calendar y, si vinculas uno, de un calendario de Microsoft 365 / Outlook en modo de solo lectura.</p>
+        <ul class="bullets">
+            <li>Responde “¿qué sigue?” desde la hora actual: omite los eventos terminados y los de todo el día, indica lo que está en curso y muestra la cuenta regresiva hasta el siguiente.</li>
+            <li>Encuentra tiempo libre desde el chat y redacta un resumen personalizado de tus patrones semanales.</li>
+            <li>Próximamente: búsqueda de eventos pasados por significado (embeddings) y sugerencias de horarios aprendidas de cómo realmente organizas tu agenda.</li>
+        </ul>
+        <p class="note">Más: <a href="https://danielbaez.xyz/calendario">danielbaez.xyz/calendario</a></p>
+    </section>
+
+    <section>
+        <div class="section-title">Investigación anterior</div>
+
+        <div class="project-title" id="watermelon-es">Do You Know Your Melons? Detección multimodal y no destructiva de la madurez de la sandía</div>
+        <div class="project-meta">
+            <span class="org">Proyecto final de diseño de ECE, Universidad Rutgers</span> · Equipo SP26-44 · Asesor: Prof. Demetrios Lambropoulos · 2025–2026<br>
+            Equipo: Edwin Espin, Daniel Báez, Brianna Felipe, Justin Lee, Haotian Zhang
+        </div>
+
+        <figure>
+            <img src="assets/images/research/hailo-scan.jpg" width="1280" height="720" alt="Fotograma del escáner en vivo: dos sandías enmarcadas en verde con las etiquetas RIPE 63% y RIPE 80%, y un texto superpuesto que dice Watermelon Ripeness Scanner (Hailo-8L), FPS 88.2, Detected 2." loading="lazy" decoding="async">
+            <figcaption>Escaneo en vivo en la Raspberry Pi 5 + Hailo-8L: el detector enmarca cada sandía y luego la CNN en el dispositivo clasifica el recorte.</figcaption>
+        </figure>
+
+        <div class="stats" role="list">
+            <div class="stat" role="listitem"><div class="num">90,4 %</div><div class="label">mejor precisión en validación, CNN de 4 clases</div></div>
+            <div class="stat" role="listitem"><div class="num">2.742</div><div class="label">imágenes etiquetadas (2.244 de entrenamiento / 498 de validación)</div></div>
+            <div class="stat" role="listitem"><div class="num">~88 FPS</div><div class="label">velocidad del escáner en vivo, Pi 5 + Hailo-8L</div></div>
+            <div class="stat" role="listitem"><div class="num">$343</div><div class="label">costo del prototipo ($120–150 a escala)</div></div>
+        </div>
+
+        <h3>Problema</h3>
+        <p>La madurez de una sandía suele juzgarse por el color de la cáscara, la mancha de campo y el sonido al golpearla. Esas señales son subjetivas y no siempre coinciden con el contenido de azúcar; la prueba confiable, abrir la fruta, la destruye. El equipo se propuso construir un dispositivo portátil que estimara la madurez sin dañar la sandía, combinando una cámara (apariencia exterior) con un radar (composición interior).</p>
+
+        <h3>Mi rol: el subsistema de visión por computadora</h3>
+        <ul class="bullets">
+            <li><strong>Conjunto de datos.</strong> Combiné imágenes con grados Brix del conjunto de sandías Qilin en IEEE DataPort con nuestras propias muestras etiquetadas con refractómetro y fotogramas de videos de sandías en descomposición; luego añadí pseudoetiquetas de mi proyecto de detección en Roboflow, conservando solo las de más del 90 % de confianza. Limité la clase dominante para reducir el desbalance.</li>
+            <li><strong>Modelo.</strong> Entrené una CNN propia (cuatro bloques de convolución y normalización por lotes, pooling promedio global y dropout) con aumento de datos y reescalado integrados, que clasifica en inmadura, madura, sobremadura y dañada.</li>
+            <li><strong>Implementación en el borde.</strong> Exporté el modelo de Keras a ONNX con una forma de entrada fija, lo cuanticé a INT8 con 64 imágenes de calibración y lo compilé a un HEF para la NPU Hailo-8L, de modo que la clasificación corre en el acelerador y no en la CPU de la Pi.</li>
+            <li><strong>Escáner.</strong> Programé la app de cámara en vivo para la Pi: detección cada pocos fotogramas, recortes por sandía, visualización anotada, un modo sin pantalla y un JSON por escaneo con campos de Brix vacíos para registrar valores de referencia en el campo.</li>
+        </ul>
+
+        <h3>Flujo de visión</h3>
+        <div class="pipeline">
+            <div class="stage"><strong>Pi Camera 3</strong><span>fotogramas de 1280×720, balance de blancos fijo</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="stage"><strong>Detección</strong><span>modelo de Roboflow, cuadros delimitadores</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="stage"><strong>CNN de madurez</strong><span>recorte de 224×224, INT8 en Hailo-8L</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="stage"><strong>Salida</strong><span>fotograma etiquetado + registro JSON</span></div>
+        </div>
+
+        <h3>Etiquetado por contenido de azúcar (°Brix)</h3>
+        <table>
+            <thead><tr><th>Clase</th><th>°Brix</th><th class="n">Entren.</th><th class="n">Valid.</th></tr></thead>
+            <tbody>
+                <tr><td>inmadura</td><td>&lt; 9,0</td><td class="n">497</td><td class="n">110</td></tr>
+                <tr><td>madura</td><td>9,0 – 11,0</td><td class="n">800</td><td class="n">272</td></tr>
+                <tr><td>sobremadura</td><td>11,0 – 13,0</td><td class="n">797</td><td class="n">76</td></tr>
+                <tr><td>dañada</td><td>≥ 13,0, o visiblemente podrida</td><td class="n">150</td><td class="n">40</td></tr>
+            </tbody>
+        </table>
+
+        <h3>El resto del sistema</h3>
+        <p>Mis compañeros construyeron el subsistema de RF en torno a un radar FMCW de 60 GHz Infineon BGT60TR13C, después de que un enfoque de menor frecuencia (generador de señales ADF4351 más un receptor SDR) resultara demasiado ruidoso para separar el contenido de azúcar del grosor de la cáscara. En MATLAB, a la señal de FI del radar se le elimina la tendencia, se le aplica una ventana (Blackman-Harris) y se transforma con una FFT; la magnitud pico, la varianza de la magnitud y el pico de fase alimentan un puntaje ponderado calibrado con lecturas de refractómetro. Luego las salidas de la cámara y del radar se combinan en una sola predicción de madurez.</p>
+
+        <h3>Resultados y limitaciones</h3>
+        <ul class="bullets">
+            <li>La CNN alcanzó un 90,4 % de mejor precisión en validación (89,4 % en la última época) y funcionó en tiempo real en la Pi.</li>
+            <li>En las pruebas en vivo, el modelo tendía a predecir sobremadura. Lo atribuí al desbalance de clases del conjunto original y armé un conjunto balanceado para reentrenarlo.</li>
+            <li>Las mediciones de radar mostraron diferencias iniciales entre sandías de distinto dulzor, pero las pocas muestras y la sensibilidad a la colocación dejaron ese subsistema en etapa de factibilidad.</li>
+            <li>La detección todavía usa una API en la nube, así que el dispositivo necesita conexión a internet.</li>
+        </ul>
+
+        <h3>Próximos pasos</h3>
+        <ul class="bullets">
+            <li>Reemplazar la CNN propia por una base preentrenada MobileNetV2 o EfficientNet-Lite, y usar entrenamiento consciente de la cuantización para limitar la pérdida de precisión en INT8.</li>
+            <li>Entrenar un detector YOLOv8-nano y compilarlo para la Hailo-8L, para que el dispositivo funcione completamente sin conexión.</li>
+            <li>Contrastar las predicciones en vivo con las lecturas de refractómetro guardadas en los registros de escaneo.</li>
+        </ul>
+
+        <p class="note" style="margin-top:0.8rem;">Código: <a href="https://github.com/d-baez/capstone" target="_blank" rel="noopener">github.com/d-baez/capstone</a> (licencia MIT). Las imágenes de IEEE DataPort tienen licencia solo para investigación no comercial y no se redistribuyen.</p>
+    </section>
+
+    <section>
+        <div class="section-title">Informe del proyecto final</div>
+        <ol class="refs">
+            <li>E. Espin, D. Báez, B. Felipe, J. Lee, and H. Zhang, “Do You Know Your Melons?” Capstone Design Final Report, Dept. of Electrical and Computer Engineering, Rutgers University, Piscataway, NJ, 2026. Advisor: D. Lambropoulos.</li>
+        </ol>
+    </section>
+
+    <section>
+        <div class="section-title">Datos y trabajos relacionados</div>
+        <ol class="refs">
+            <li>L. Zhang, R. Chen, H. Hao, E. He, M. Ning, J. Tang, and A. Fan, “Watermelon appearance and knock correlate data sets with sugar content,” <em>IEEE DataPort</em>, Jul. 2024. doi: <a href="https://dx.doi.org/10.21227/wb3s-h174" target="_blank" rel="noopener">10.21227/wb3s-h174</a></li>
+            <li>S. O. Nelson, “Dielectric properties of honeydew melons and correlation with quality,” <em>J. Microwave Power &amp; Electromagnetic Energy</em>, vol. 40, no. 1, pp. 31–40, 2005.</li>
+            <li>S. Tan and J. Yang, “FruitSense: Object sensing for fruit ripeness detection using WiFi signals,” in <em>Proc. ICCCN</em>, 2018.</li>
+            <li>X. Zhang et al., “Melon ripeness detection by an improved object detection algorithm for resource-constrained environments (MRD-YOLO),” <em>Plant Methods</em>, vol. 20, p. 127, 2024.</li>
+        </ol>
+    </section>
+
+    <section>
+        <div class="section-title">Herramientas</div>
+        <ul class="tags">
+            <li>Python</li><li>Ollama</li><li>Cohere API</li><li>Open-Prompt-Injection</li><li>TensorFlow / Keras</li><li>ONNX</li><li>Hailo Dataflow Compiler</li><li>HailoRT</li><li>OpenCV</li><li>picamera2</li><li>Roboflow</li><li>Raspberry Pi 5</li><li>Docker</li><li>MATLAB</li>
+        </ul>
+    </section>
+
+</article>
 </main>
+<script src="assets/js/lang-toggle.js"></script>
 </body>
 </html>

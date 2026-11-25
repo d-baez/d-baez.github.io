@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-es="Daniel Báez — Currículum">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -161,13 +161,43 @@
             .entry-header, .entry-sub { flex-direction: column; }
             .entry-location, .entry-sub .date { text-align: left; }
         }
+
+        /* EN | ES switch */
+        .back-nav { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle {
+            margin-left: auto;
+            display: inline-flex;
+            border: 1px solid #ccc;
+            border-radius: 999px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .lang-toggle button {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            padding: 3px 10px;
+            border: 0;
+            background: transparent;
+            color: #555;
+            cursor: pointer;
+        }
+        .lang-toggle button[aria-pressed="true"] { background: #111; color: #fff; }
+        .lang-toggle button:focus-visible { outline: 2px solid #04AA6D; outline-offset: 2px; }
+        @media print { .back-nav { display: none; } }
     </style>
 </head>
 <body>
 
-<div class="back-nav"><a href="https://danielbaez.xyz/">← home</a></div>
+<nav class="back-nav">
+    <a href="https://danielbaez.xyz/"><span data-lang="en">← home</span><span data-lang="es" lang="es" hidden>← inicio</span></a>
+    <a href="https://danielbaez.xyz/research"><span data-lang="en">research profile</span><span data-lang="es" lang="es" hidden>perfil de investigación</span></a>
+    <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-set-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-set-lang="es" aria-pressed="false" lang="es">ES</button>
+    </div>
+</nav>
 
-<div class="page">
+<div class="page" lang="en" data-lang="en">
 
     <header class="resume-header">
         <h1>Daniel Báez</h1>
@@ -326,5 +356,166 @@
     </section>
 
 </div>
+
+<div class="page" lang="es" data-lang="es" hidden>
+
+    <header class="resume-header">
+        <h1>Daniel Báez</h1>
+        <div class="contact">
+            <a href="mailto:daniel.baez(at)rutgers.edu">daniel.baez(at)rutgers.edu</a>
+            <span>●</span>
+            <a href="https://linkedin.com/in/-danielbaez/" target="_blank" rel="noopener">linkedin.com/in/-danielbaez/</a>
+            <span>●</span>
+            <a href="https://danielbaez.xyz" target="_blank" rel="noopener">danielbaez.xyz</a>
+            <span>●</span>
+            <a href="https://danielbaez.xyz/research?lang=es">perfil de investigación</a>
+        </div>
+    </header>
+
+    <!-- Educación -->
+    <section>
+        <div class="section-title">Educación</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Universidad Rutgers, Escuela de Ingeniería</span>
+                <span class="entry-location">New Brunswick, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span>Licenciatura (B.S.) en Ingeniería Eléctrica y de Computadoras; especialidad secundaria (minor) en Habilidades de Liderazgo</span>
+                <span class="date">Diciembre de 2026</span>
+            </div>
+            <div style="font-size:13px;"><strong>Actividades extracurriculares:</strong> Pasante de Participación Comunitaria en el Zimmerli Art Museum y Society of Hispanic Engineers</div>
+        </div>
+    </section>
+
+    <!-- Experiencia en investigación -->
+    <section>
+        <div class="section-title">Experiencia en investigación</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Evaluación de defensas contra ataques de inyección de prompts — ECE 424</span>
+                <span class="entry-location">New Brunswick, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Departamento de ECE de Rutgers · con Michael Cardenas</span>
+                <span class="date">Otoño de 2026</span>
+            </div>
+            <ul class="bullets">
+                <li>Evalué 10 defensas publicadas contra la inyección de prompts frente a 5 ataques en tres LLM locales (qwen3:8b, Mistral 7B, Llama 3.1 8B) mediante Ollama: 150 experimentos y ~48.000 llamadas al modelo sobre un conjunto de prueba independiente de 100 casos de SST-2.</li>
+                <li>Diseñé una tarea inyectada de coincidencia exacta para que el éxito de un ataque no se confunda con un error de clasificación común; demostré que las defensas que envuelven el prompt dejaron el éxito de ataque en qwen3 entre el 61 % y el 98 %, y que los ataques de falsa finalización y combinado superaron a las cinco el 100 % de las veces.</li>
+                <li>Descubrí que la aparente robustez del modelo a mitad del proyecto se debía a un error de configuración (el modo de razonamiento seguía activado); al corregirlo, el éxito de ataque medido subió de 191 a 542 de 1.000.</li>
+                <li>Publiqué el código y un índice de evidencia que vincula cada afirmación con sus datos y su commit, además de una animación en vivo de los ataques en db444.xyz/attack-demo.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Detección multimodal de la madurez de sandías — Proyecto final de ECE (Equipo SP26-44)</span>
+                <span class="entry-location">Piscataway, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Departamento de ECE de Rutgers · Asesor: Prof. Demetrios Lambropoulos</span>
+                <span class="date">Otoño de 2025 – Primavera de 2026</span>
+            </div>
+            <ul class="bullets">
+                <li>Desarrollé el subsistema de visión por computadora de un detector de madurez no destructivo que combina imágenes de cámara con un radar FMCW de 60 GHz en una Raspberry Pi 5.</li>
+                <li>Reuní un conjunto de más de 2.700 imágenes a partir de imágenes de IEEE DataPort etiquetadas con grados Brix, muestras propias y pseudoetiquetas filtradas por confianza; entrené una CNN propia de 4 clases que alcanzó un 90,4 % de precisión en validación.</li>
+                <li>Implementé un flujo de dos etapas (detección en la nube, clasificación en el dispositivo): exporté el modelo a ONNX, lo cuanticé a INT8 y lo compilé para la NPU Hailo-8L; el escáner en vivo funciona a ~88 FPS en la Pi.</li>
+                <li>Fui coautor del informe final, que abarca el diseño del sistema, la calibración de RF con lecturas de refractómetro y un análisis de costos (prototipo de $343; $120–150 proyectados a escala). <a href="https://danielbaez.xyz/research?lang=es">Perfil completo →</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Experiencia laboral -->
+    <section>
+        <div class="section-title">Experiencia laboral</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Asistente de Soporte Técnico (IT HelpDesk)</span>
+                <span class="entry-location">New Brunswick, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Rutgers School of Communication &amp; Information</span>
+                <span class="date">Diciembre de 2023 – Presente</span>
+            </div>
+            <ul class="bullets">
+                <li>Diagnostiqué y resolví una amplia variedad de problemas de hardware, software y red para un promedio de 25 usuarios por semana, y desarrollé protocolos estandarizados de diagnóstico que redujeron el tiempo promedio de resolución en un 30 % y mejoraron la eficiencia general del equipo.</li>
+                <li>Supervisé las compras y el inventario de TI conforme a las buenas prácticas de gestión del ciclo de vida de los activos, lo que redujo en un 25 % el tiempo de inactividad de los equipos de TI y mejoró los recursos dentro y fuera del aula.</li>
+                <li>Brindé soporte de TI a directivos, docentes, personal y estudiantes de doctorado y de pregrado de toda la universidad.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Experiencia en prácticas -->
+    <section>
+        <div class="section-title">Experiencia en prácticas</div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Presidente</span>
+                <span class="entry-location">New Brunswick, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Raíces Ecuatorianas en América</span>
+                <span class="date">Mayo de 2025 – Mayo de 2026</span>
+            </div>
+            <ul class="bullets">
+                <li>Dirigí la planificación y ejecución de programas de varios niveles con un equipo ejecutivo de 15 personas, en coordinación con socios externos y la administración universitaria, gestionando plazos, logística y entregables de varias iniciativas simultáneas.</li>
+                <li>Supervisé la planificación estratégica, el presupuesto y la logística de eventos, asegurando su alineación con las políticas institucionales y la misión a largo plazo de la organización.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Coordinador de Relaciones Públicas</span>
+                <span class="entry-location"></span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Raíces Ecuatorianas en América</span>
+                <span class="date">Mayo de 2024 – Mayo de 2025</span>
+            </div>
+            <ul class="bullets">
+                <li>Fui el principal vocero y representante de Raíces Ecuatorianas en América, promoviendo la participación de estudiantes latines y la conciencia cultural en la comunidad de Rutgers.</li>
+                <li>Aumenté la membresía de la organización en un 85 % con nuevas iniciativas como el panel de carreras de REA y Arte de los Andes, con el apoyo del Zimmerli Art Museum de Rutgers, y fortalecí su visibilidad y alcance en el campus.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Pasante de Comunicaciones</span>
+                <span class="entry-location">Montclair, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Montclair Democrats</span>
+                <span class="date">Septiembre de 2020 – Enero de 2021</span>
+            </div>
+            <ul class="bullets">
+                <li>Capacité a más de 25 personas en estrategias de llamadas a votantes (phone banking) y facilité su participación en la campaña.</li>
+                <li>Realicé una evaluación exhaustiva de las redes sociales para ampliar el alcance y la interacción del contenido, logrando una presencia en línea más focalizada y eficaz.</li>
+                <li>Colaboré con el equipo de comunicaciones en la redacción y difusión de mensajes persuasivos que conectaron con el público objetivo, contribuyendo a una mayor visibilidad y apoyo para las iniciativas de la organización.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section>
+        <div class="section-title">Proyectos</div>
+        <ul class="project-list">
+            <li><strong>Asistente de agenda con IA (Calendario)</strong> — Estoy desarrollando un asistente conversacional de calendario que envía cada mensaje a un modelo de Cohere (Command R7B) para clasificar la intención y extraer los detalles, y luego responde a partir de Google Calendar y de un calendario de Microsoft 365 / Outlook vinculado en modo de solo lectura; permite preguntar “¿qué sigue?” desde la hora actual, buscar tiempo libre y obtener resúmenes personalizados de los patrones semanales.</li>
+            <li><strong>Puente de domótica IoT</strong> — Configuro y administro un puente basado en Raspberry Pi que conecta varios dispositivos IoT a Apple HomeKit, para el control centralizado y la automatización del hogar.</li>
+        </ul>
+    </section>
+
+    <!-- Habilidades -->
+    <section>
+        <div class="section-title">Habilidades</div>
+        <div class="skills-list">
+            Adobe Suite | RCP | Figma | GitHub | ServiceNow | Español | HTML | iOS | macOS | MATLAB | Microsoft 365 | Python | WordPress | Windows
+        </div>
+    </section>
+
+</div>
+
+<script src="assets/js/lang-toggle.js"></script>
 </body>
 </html>
