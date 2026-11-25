@@ -33,6 +33,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@1&family=IBM+Plex+Sans&family=Libre+Franklin:ital@0;1&display=swap" rel="stylesheet">
 <style>
+    .doc-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        list-style: none;
+        margin: 8px 0 16px;
+        padding: 0;
+    }
+    .doc-links a {
+        display: inline-block;
+        padding: 7px 16px;
+        border: 1px solid #bbb;
+        border-radius: 999px;
+        color: inherit;
+        text-decoration: none;
+        font-size: 15px;
+        background: rgba(255,255,255,0.6);
+    }
+    .doc-links a:hover { border-color: #04AA6D; color: #04AA6D; }
+    .doc-links a:focus-visible { outline: 3px solid #04AA6D; outline-offset: 2px; }
+
     .profile-card {
         display: inline-flex;
         flex-direction: column;
@@ -186,31 +208,38 @@
 
 <!code/text> -->
 <body>
-<div class="topnav" >
+<div class="topnav">
     <a href="https://danielbaez.xyz/">home</a>
-    <!--  <a href="#news">News</a>-->
     <div class="nav-dropdown">
         <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">projects</button>
         <div class="dropdown-menu">
             <a href="https://danielbaez.xyz/projects">all projects</a>
+            <hr class="dropdown-sep">
             <a href="https://danielbaez.xyz/calendario">Calendario</a>
+            <a href="https://danielbaez.xyz/los-cedros">Los Cedros</a>
             <a href="https://danielbaez.xyz/music">My Music Library</a>
-            <a href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">Daniel B Photos</a>
-            <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">Daniel's Digital Lab</a>
+            <hr class="dropdown-sep">
+            <a href="https://www.danielbphotos.wordpress.com/" target="_blank" rel="noopener">Daniel B Photos <span aria-hidden="true">↗</span></a>
+            <a href="https://danielbaez.webflow.io" target="_blank" rel="noopener">Daniel's Digital Lab <span aria-hidden="true">↗</span></a>
         </div>
     </div>
-    <a class="active" href="#about">about</a>
+    <a href="https://danielbaez.xyz/research">research</a>
+    <a class="active" href="https://danielbaez.xyz/about">about</a>
 </div>
 
 
         <h1 id="about">Who is Daniel Báez?</h1>
 <h2>
-    I'm a final-year Electrical and Computer Engineering student at Rutgers University, graduating in December 2026, and I'm passionate about building, learning, and creating. My journey has taken me through diverse experiences—from managing social media and exploring backend development in WordPress, to supporting faculty and students as an IT HelpDesk Assistant and leading Raíces Ecuatorianas en América as president. Lately I've been building things I'm proud of: a real-time watermelon ripeness classifier running on a Raspberry Pi, <a href="https://danielbaez.xyz/calendario">Calendario</a>, an AI assistant that answers plain-language questions about my Google Calendar, and drone footage and 3D scans of the forest at <a href="https://danielbaez.xyz/los-cedros">Los Cedros</a> in Ecuador.
+    I'm a final-year Electrical and Computer Engineering student at Rutgers University, graduating in December 2026, and I'm passionate about building, learning, and creating. My journey has taken me through diverse experiences—from managing social media and exploring backend development in WordPress, to supporting faculty and students as an IT HelpDesk Assistant and leading Raíces Ecuatorianas en América as president. Lately I've been building things I'm proud of: <a href="https://danielbaez.xyz/research#watermelon">a real-time watermelon ripeness classifier</a> running on a Raspberry Pi, <a href="https://danielbaez.xyz/calendario">Calendario</a>, an AI assistant that answers plain-language questions about my Google Calendar, and drone footage and 3D scans of the forest at <a href="https://danielbaez.xyz/los-cedros">Los Cedros</a> in Ecuador.
     <br><br>
     More recently, I’ve ventured into the world of DJing—a fresh chapter where I experiment with sound and explore music as a dynamic outlet for self-expression. Though new to the scene, I'm driven by curiosity and creativity, always eager to try new mediums.
     <br><br>
     I’d love to connect, collaborate, and share stories—whether it’s about tech, music, or everything in between. Explore the links below to learn more.
 </h2>
+<ul class="doc-links" aria-label="Resume and research">
+    <li><a href="https://danielbaez.xyz/resume">resume</a></li>
+    <li><a href="https://danielbaez.xyz/research">research profile</a></li>
+</ul>
 <p class="intro-text">Uncover the depths of my story</p>
 
 

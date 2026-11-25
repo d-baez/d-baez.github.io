@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Daniel Báez — Research</title>
+    <meta name="description" content="Research profile for Daniel Báez: prompt-injection defenses for local LLMs, AI scheduling tools, and embedded computer vision for fruit ripeness detection.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://danielbaez.xyz/research">
+    <meta property="og:site_name" content="Daniel Báez">
+    <meta property="og:title" content="Daniel Báez — Research">
+    <meta property="og:description" content="Prompt-injection defenses for local LLMs, AI scheduling tools, and embedded computer vision for fruit ripeness detection.">
+    <meta property="og:image" content="https://danielbaez.xyz/assets/images/research/hailo-scan.jpg">
+    <meta property="og:image:alt" content="Live Hailo-8L scanner classifying two watermelons as ripe">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.55;
+            color: #111;
+            background: #f5f5f5;
+            padding: 2rem 1rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 0 auto 0.8rem;
+            font-size: 13px;
+            display: flex;
+            gap: 1rem;
+        }
+        .back-nav a { color: #555; text-decoration: none; }
+        .back-nav a:hover { text-decoration: underline; }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        a { color: #111; }
+
+        /* Header */
+        .profile-header { margin-bottom: 1.2rem; }
+        .profile-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+        }
+        .profile-header .role {
+            margin-top: 0.3rem;
+            font-size: 14px;
+            color: #333;
+        }
+        .profile-header .links {
+            margin-top: 0.5rem;
+            font-size: 13px;
+            color: #333;
+        }
+        .profile-header .links a { color: #333; }
+        .profile-header .links span { margin: 0 0.3rem; }
+
+        section { margin-top: 1.6rem; }
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1.5px solid #111;
+            padding-bottom: 2px;
+            margin-bottom: 0.8rem;
+        }
+
+        p { margin-bottom: 0.6rem; font-size: 13.5px; }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            list-style: none;
+        }
+        .tags li {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            padding: 0.15rem 0.5rem;
+        }
+
+        /* Project */
+        .project-title { scroll-margin-top: 1rem; font-size: 1.15rem; font-weight: 700; line-height: 1.3; }
+        .project-meta {
+            font-size: 13px;
+            color: #444;
+            margin: 0.2rem 0 0.8rem;
+        }
+        .project-meta .org { font-style: italic; }
+
+        figure { margin: 1rem 0; }
+        figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #ddd;
+        }
+        figcaption {
+            font-size: 12px;
+            color: #555;
+            margin-top: 0.35rem;
+        }
+
+        h3 {
+            font-size: 13px;
+            font-weight: 700;
+            margin: 1.1rem 0 0.4rem;
+        }
+
+        ul.bullets { padding-left: 1.3rem; }
+        ul.bullets li { margin-bottom: 0.3rem; font-size: 13px; }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.6rem;
+            margin: 1rem 0;
+        }
+        .stat {
+            border: 1px solid #e2e2e2;
+            padding: 0.6rem 0.7rem;
+        }
+        .stat .num { font-size: 1.35rem; font-weight: 700; line-height: 1.2; }
+        .stat .label { font-size: 11.5px; color: #555; }
+
+        /* Pipeline */
+        .pipeline {
+            display: flex;
+            align-items: stretch;
+            gap: 0.4rem;
+            margin: 0.4rem 0 0.6rem;
+            flex-wrap: wrap;
+        }
+        .pipeline .stage {
+            flex: 1 1 140px;
+            border: 1px solid #ccc;
+            padding: 0.5rem 0.6rem;
+            font-size: 12.5px;
+        }
+        .pipeline .stage strong { display: block; font-size: 12.5px; }
+        .pipeline .stage span { color: #555; }
+        .pipeline .arrow { align-self: center; color: #888; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            margin: 0.4rem 0 0.6rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 0.3rem 0.5rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        th { font-weight: 600; border-bottom: 1.5px solid #111; }
+        td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+        .note { font-size: 12.5px; color: #444; }
+        code { font-family: 'IBM Plex Mono', monospace; font-size: 12px; background: #f2f2f2; padding: 0 0.25rem; }
+
+        ol.refs { padding-left: 1.3rem; }
+        ol.refs li { font-size: 12.5px; margin-bottom: 0.35rem; color: #333; }
+
+        @media (max-width: 600px) {
+            .page { padding: 1.5rem 1.2rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .pipeline .arrow { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="back-nav">
+    <a href="https://danielbaez.xyz/">← home</a>
+    <a href="https://danielbaez.xyz/resume">resume</a>
+</nav>
+
+<main class="page">
+
+    <header class="profile-header">
+        <h1>Daniel Báez</h1>
+        <div class="role">B.S. Electrical &amp; Computer Engineering, Rutgers University (Dec 2026)</div>
+        <div class="links">
+            <a href="mailto:daniel.baez(at)rutgers.edu">daniel.baez(at)rutgers.edu</a>
+            <span>●</span>
+            <a href="https://linkedin.com/in/-danielbaez/" target="_blank" rel="noopener">LinkedIn</a>
+            <span>●</span>
+            <a href="https://github.com/d-baez" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-title">Research Interests</div>
+        <p>I work on getting machine learning models off the desktop and onto small, low-cost hardware, where they can make measurements people otherwise do by eye or by guesswork. Right now that means two things: testing whether the defenses meant to protect LLM apps from prompt injection actually hold up on small local models, and building AI tools people use day to day. Before that, my capstone combined computer vision with radar so a handheld device could judge a watermelon's ripeness without cutting it open.
+
+        I'm interested sustainable energy, low energy communication like Meshstatics, regenerative energy, and environmental technology.</p>
+        <ul class="tags">
+            <li>edge AI</li>
+            <li>embedded computer vision</li>
+            <li>model quantization</li>
+            <li>multimodal sensing</li>
+            <li>LLM security</li>
+            <li>prompt injection</li>
+            <li>agricultural technology</li>
+            <li>RF / radar signal processing</li>
+        </ul>
+    </section>
+
+    <section>
+        <div class="section-title">Current Research</div>
+
+        <div class="project-title" id="prompt-injection">Evaluating Defenses Against Prompt Injection Attacks</div>
+        <div class="project-meta">
+            <span class="org">ECE 424, Rutgers University</span> · Fall 2026 · with Michael Cardenas
+        </div>
+
+        <p>When an LLM app pastes untrusted text (a review, an email, a web page) into its prompt, that text can carry instructions of its own. We measured how well the published defenses actually stop that on small open-weight models run locally. We built on the Open-Prompt-Injection toolkit (Liu et al., USENIX Security 2024) and left its defense code unchanged.</p>
+
+        <div class="stats" role="list">
+            <div class="stat" role="listitem"><div class="num">150</div><div class="label">experiments: 5 attacks × 10 defenses × 3 models</div></div>
+            <div class="stat" role="listitem"><div class="num">~48K</div><div class="label">model calls, all local via Ollama</div></div>
+            <div class="stat" role="listitem"><div class="num">98.0%</div><div class="label">qwen3:8b attack success, no defense</div></div>
+            <div class="stat" role="listitem"><div class="num">0.4%</div><div class="label">Mistral 7B, same attacks</div></div>
+        </div>
+
+        <h3>Setup</h3>
+        <p>The target task is sentiment classification on 100 SST-2 reviews, kept separate from the 20 cases used for tuning. The injected instruction tells the model to print the word <code>INJECTED</code> and nothing else. That makes success unambiguous: an attack counts only when the output is exactly that word, so an ordinary misclassification can't be mistaken for a successful attack, a confound we showed in the original setup. Models: qwen3:8b, Mistral 7B and Llama 3.1 8B, at temperature 0, with 95% Wilson intervals on every cell.</p>
+
+        <h3>Findings</h3>
+        <ul class="bullets">
+            <li><strong>Models differ more than defenses do.</strong> With no defense, qwen3 followed the injection 98.0% of the time, Llama 3.1 42.8% and Mistral 0.4%.</li>
+            <li><strong>Prompt-wrapping defenses only partly help.</strong> Instructional, delimiter, XML, sandwich and random-sequence wrapping left qwen's attack success at 61–98%. The fake-completion and combined attacks succeeded on 100 of 100 cases against all five.</li>
+            <li><strong>Detection-based defenses worked on qwen, with caveats.</strong> Known-answer and response-based detection blocked every attack without blocking clean prompts. But response-based works only because <code>INJECTED</code> isn't a valid label, known-answer blocked every prompt on Mistral because of an exact-match bug (a leading space), and on Llama it missed most fake-completion attacks.</li>
+            <li><strong>Paraphrasing scored 0% by deleting the review.</strong> Every attacked answer collapsed to the same label, so it isn't a usable defense result.</li>
+            <li><strong>An early result was a bug.</strong> qwen's apparent robustness at the midpoint came from its reasoning ("thinking") mode being left on. Turning it off raised exact-match success from 191 to 542 of 1,000.</li>
+        </ul>
+
+        <h3>My part</h3>
+        <ul class="bullets">
+            <li>Built the local Ollama runner and model configs, designed the exact-match <code>INJECTED</code> task and the experiment matrices, and cut the separate 100-case final split.</li>
+            <li>Found and fixed the qwen thinking bug, made the scorer count blocked answers correctly, and ran the qwen and Mistral final sweeps.</li>
+            <li>Wrote the evidence index that maps every claim to its data and commit, frozen as a tagged release.</li>
+            <li>Built an interactive animation of the attacks, live at <a href="https://db444.xyz/attack-demo/" target="_blank" rel="noopener">db444.xyz/attack-demo</a>.</li>
+        </ul>
+
+        <p class="note" style="margin-top:0.8rem;">Code and evidence: <a href="https://github.com/d-baez/prompt-injection-proj" target="_blank" rel="noopener">github.com/d-baez/prompt-injection-proj</a>. Builds on Y. Liu et al., “Formalizing and Benchmarking Prompt Injection Attacks and Defenses,” <em>USENIX Security</em>, 2024.</p>
+    </section>
+
+    <section>
+        <div class="section-title">Current AI Project</div>
+
+        <div class="project-title">Calendario: an AI Scheduling Assistant</div>
+        <div class="project-meta">
+            <span class="org">Independent project</span> · 2025–present
+        </div>
+        <p>A chat assistant for your calendar. Each message goes to a Cohere model (Command R7B) that sorts out what you're asking for and pulls out the details: dates, times, event names. The app then answers from your Google Calendar, plus a read-only Microsoft 365 / Outlook calendar if you link one.</p>
+        <ul class="bullets">
+            <li>Answers “what's next?” from the current time: it skips finished and all-day events, names what's in progress and counts down to the next one.</li>
+            <li>Finds free time in chat, and writes a personalized summary of your weekly patterns.</li>
+            <li>Next: search over past events by meaning (embeddings) and time-slot suggestions learned from how you actually schedule.</li>
+        </ul>
+        <p class="note">More: <a href="https://danielbaez.xyz/calendario">danielbaez.xyz/calendario</a></p>
+    </section>
+
+    <section>
+        <div class="section-title">Past Research</div>
+
+        <div class="project-title" id="watermelon">Do You Know Your Melons? Multimodal, Non-Destructive Watermelon Ripeness Detection</div>
+        <div class="project-meta">
+            <span class="org">ECE Capstone Design, Rutgers University</span> · Team SP26-44 · Advisor: Prof. Demetrios Lambropoulos · 2025–2026<br>
+            Team: Edwin Espin, Daniel Báez, Brianna Felipe, Justin Lee, Haotian Zhang
+        </div>
+
+        <figure>
+            <img src="assets/images/research/hailo-scan.jpg" width="1280" height="720" alt="Camera frame from the live scanner: two watermelons boxed in green and labeled RIPE 63% and RIPE 80%, with an overlay reading Watermelon Ripeness Scanner (Hailo-8L), FPS 88.2, Detected 2." loading="lazy" decoding="async">
+            <figcaption>Live scan on the Raspberry Pi 5 + Hailo-8L: the detector boxes each melon, then the on-device CNN classifies the crop.</figcaption>
+        </figure>
+
+        <div class="stats" role="list">
+            <div class="stat" role="listitem"><div class="num">90.4%</div><div class="label">best validation accuracy, 4-class CNN</div></div>
+            <div class="stat" role="listitem"><div class="num">2,742</div><div class="label">labeled images (2,244 train / 498 val)</div></div>
+            <div class="stat" role="listitem"><div class="num">~88 FPS</div><div class="label">live scanner frame rate, Pi 5 + Hailo-8L</div></div>
+            <div class="stat" role="listitem"><div class="num">$343</div><div class="label">prototype cost ($120–150 at scale)</div></div>
+        </div>
+
+        <h3>Problem</h3>
+        <p>Watermelon ripeness is usually judged by rind color, the field spot and the sound of a knock. Those cues are subjective and don't always match the sugar content inside; the reliable check, cutting the fruit, destroys it. The team set out to build a portable device that estimates ripeness without damaging the melon, by pairing a camera (outside appearance) with radar (inside composition).</p>
+
+        <h3>My role: the computer vision subsystem</h3>
+        <ul class="bullets">
+            <li><strong>Dataset.</strong> Combined Brix-labeled images from the Qilin watermelon set on IEEE DataPort with our own refractometer-labeled samples and frames from rotting-melon video, then added pseudo-labels from my Roboflow detection project, kept only above 90% confidence. Capped the dominant class to reduce imbalance.</li>
+            <li><strong>Model.</strong> Trained a custom CNN (four conv/batch-norm blocks, global average pooling, dropout) with built-in augmentation and rescaling, classifying unripe, ripe, overripe and spoiled.</li>
+            <li><strong>Edge deployment.</strong> Exported the Keras model to ONNX with a fixed input shape, quantized it to INT8 with 64 calibration images, and compiled it to a HEF for the Hailo-8L NPU, so classification runs on-device instead of on the Pi's CPU.</li>
+            <li><strong>Scanner.</strong> Wrote the live Pi camera app: detection every few frames, per-melon crops, annotated display, a headless mode, and per-scan JSON with empty manual Brix fields for collecting ground truth in the field.</li>
+        </ul>
+
+        <h3>Vision pipeline</h3>
+        <div class="pipeline">
+            <div class="stage"><strong>Pi Camera 3</strong><span>1280×720 frames, white balance locked</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="stage"><strong>Detection</strong><span>Roboflow model, bounding boxes</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="stage"><strong>Ripeness CNN</strong><span>224×224 crop, INT8 on Hailo-8L</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="stage"><strong>Output</strong><span>labeled frame + JSON record</span></div>
+        </div>
+
+        <h3>Labeling by sugar content (°Brix)</h3>
+        <table>
+            <thead><tr><th>Class</th><th>°Brix</th><th class="n">Train</th><th class="n">Val</th></tr></thead>
+            <tbody>
+                <tr><td>unripe</td><td>&lt; 9.0</td><td class="n">497</td><td class="n">110</td></tr>
+                <tr><td>ripe</td><td>9.0 – 11.0</td><td class="n">800</td><td class="n">272</td></tr>
+                <tr><td>overripe</td><td>11.0 – 13.0</td><td class="n">797</td><td class="n">76</td></tr>
+                <tr><td>spoiled</td><td>≥ 13.0, or visibly rotted</td><td class="n">150</td><td class="n">40</td></tr>
+            </tbody>
+        </table>
+
+        <h3>The rest of the system</h3>
+        <p>Teammates built the RF subsystem around an Infineon BGT60TR13C 60 GHz FMCW radar, after a lower-frequency approach (ADF4351 signal generator plus an SDR receiver) proved too noisy to separate sugar content from rind thickness. In MATLAB, the radar's IF signal is detrended, windowed (Blackman-Harris) and transformed with an FFT; peak magnitude, magnitude variance and phase peak feed a weighted score calibrated against refractometer readings. The camera and radar outputs are then fused into one ripeness prediction.</p>
+
+        <h3>Results and limitations</h3>
+        <ul class="bullets">
+            <li>The CNN reached 90.4% best validation accuracy (89.4% at the final epoch) and ran in real time on the Pi.</li>
+            <li>In live testing the model leaned toward predicting overripe. I traced this to class imbalance in the original training set and rebuilt a balanced set for retraining.</li>
+            <li>Radar measurements showed early differences between melons of different sweetness, but limited samples and sensitivity to placement kept that subsystem at the feasibility stage.</li>
+            <li>Detection still calls a cloud API, so the device needs internet access.</li>
+        </ul>
+
+        <h3>Next steps</h3>
+        <ul class="bullets">
+            <li>Replace the custom CNN with a pretrained MobileNetV2 or EfficientNet-Lite backbone, and use quantization-aware training to limit INT8 accuracy loss.</li>
+            <li>Train a YOLOv8-nano detector and compile it for the Hailo-8L, so the device works fully offline.</li>
+            <li>Check live predictions against refractometer readings captured in the scan records.</li>
+        </ul>
+
+        <p class="note" style="margin-top:0.8rem;">Code: <a href="https://github.com/d-baez/capstone" target="_blank" rel="noopener">github.com/d-baez/capstone</a> (MIT license). The IEEE DataPort images are licensed for non-commercial research only and are not redistributed.</p>
+    </section>
+
+    <section>
+        <div class="section-title">Capstone Report</div>
+        <ol class="refs">
+            <li>E. Espin, D. Báez, B. Felipe, J. Lee, and H. Zhang, “Do You Know Your Melons?” Capstone Design Final Report, Dept. of Electrical and Computer Engineering, Rutgers University, Piscataway, NJ, 2026. Advisor: D. Lambropoulos.</li>
+        </ol>
+    </section>
+
+    <section>
+        <div class="section-title">Data &amp; Related Work</div>
+        <ol class="refs">
+            <li>L. Zhang, R. Chen, H. Hao, E. He, M. Ning, J. Tang, and A. Fan, “Watermelon appearance and knock correlate data sets with sugar content,” <em>IEEE DataPort</em>, Jul. 2024. doi: <a href="https://dx.doi.org/10.21227/wb3s-h174" target="_blank" rel="noopener">10.21227/wb3s-h174</a></li>
+            <li>S. O. Nelson, “Dielectric properties of honeydew melons and correlation with quality,” <em>J. Microwave Power &amp; Electromagnetic Energy</em>, vol. 40, no. 1, pp. 31–40, 2005.</li>
+            <li>S. Tan and J. Yang, “FruitSense: Object sensing for fruit ripeness detection using WiFi signals,” in <em>Proc. ICCCN</em>, 2018.</li>
+            <li>X. Zhang et al., “Melon ripeness detection by an improved object detection algorithm for resource-constrained environments (MRD-YOLO),” <em>Plant Methods</em>, vol. 20, p. 127, 2024.</li>
+        </ol>
+    </section>
+
+    <section>
+        <div class="section-title">Tools</div>
+        <ul class="tags">
+            <li>Python</li><li>Ollama</li><li>Cohere API</li><li>Open-Prompt-Injection</li><li>TensorFlow / Keras</li><li>ONNX</li><li>Hailo Dataflow Compiler</li><li>HailoRT</li><li>OpenCV</li><li>picamera2</li><li>Roboflow</li><li>Raspberry Pi 5</li><li>Docker</li><li>MATLAB</li>
+        </ul>
+    </section>
+
+</main>
+</body>
+</html>

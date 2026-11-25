@@ -128,6 +128,14 @@
      color: black;
  }
 
+ .dropdown-sep {
+     border: 0;
+     border-top: 1px solid #4a4a4a;
+     margin: 4px 0;
+     width: 100%;
+     align-self: stretch;
+ }
+
 
  .box{
      display: flex;
@@ -373,6 +381,9 @@
      .dropdown-menu a {
          padding-left: 32px;
          border-bottom: 1px solid #444;
+     }
+     .dropdown-sep {
+         display: none; /* mobile rows already have borders */
      }
 
      /* Generic .box rows: stack image + text vertically */

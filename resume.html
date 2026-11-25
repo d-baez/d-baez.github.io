@@ -178,6 +178,8 @@
             <a href="https://linkedin.com/in/-danielbaez/" target="_blank" rel="noopener">linkedin.com/in/-danielbaez/</a>
             <span>●</span>
             <a href="https://danielbaez.xyz" target="_blank" rel="noopener">danielbaez.xyz</a>
+            <span>●</span>
+            <a href="https://danielbaez.xyz/research">research profile</a>
         </div>
     </header>
 
@@ -194,6 +196,44 @@
                 <span class="date">December 2026</span>
             </div>
             <div style="font-size:13px;"><strong>Extra-curriculars:</strong> Community Engagement Intern at Zimmerli Art Museum and Society of Hispanic Engineers</div>
+        </div>
+    </section>
+
+    <!-- Research Experience -->
+    <section>
+        <div class="section-title">Research Experience</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Evaluating Defenses Against Prompt Injection Attacks — ECE 424</span>
+                <span class="entry-location">New Brunswick, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Rutgers ECE Department · with Michael Cardenas</span>
+                <span class="date">Fall 2026</span>
+            </div>
+            <ul class="bullets">
+                <li>Benchmarked 10 published prompt-injection defenses against 5 attacks on three local LLMs (qwen3:8b, Mistral 7B, Llama 3.1 8B) through Ollama: 150 experiments and ~48,000 model calls on a separate 100-case SST-2 test set.</li>
+                <li>Designed an exact-match injected task so that attack success can't be confused with ordinary misclassification; showed that prompt-wrapping defenses left qwen3 attack success at 61–98%, and that the fake-completion and combined attacks got through all five 100% of the time.</li>
+                <li>Found that the model's apparent robustness at the midpoint was a configuration bug (reasoning mode left on); fixing it raised measured attack success from 191 to 542 of 1,000.</li>
+                <li>Published the code and an evidence index mapping each claim to its data and commit, plus a live attack animation at db444.xyz/attack-demo.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Multimodal Watermelon Ripeness Detection — ECE Capstone (Team SP26-44)</span>
+                <span class="entry-location">Piscataway, NJ</span>
+            </div>
+            <div class="entry-sub">
+                <span class="org">Rutgers ECE Department · Advisor: Prof. Demetrios Lambropoulos</span>
+                <span class="date">Fall 2025 – Spring 2026</span>
+            </div>
+            <ul class="bullets">
+                <li>Built the computer vision subsystem of a non-destructive ripeness detector that fuses camera imaging with 60 GHz FMCW radar sensing on a Raspberry Pi 5.</li>
+                <li>Assembled a 2,700+ image dataset from Brix-labeled IEEE DataPort images, self-collected samples and confidence-filtered pseudo-labels; trained a custom 4-class CNN reaching 90.4% validation accuracy.</li>
+                <li>Deployed a two-stage pipeline (cloud detection, on-device classification) by exporting the model to ONNX, quantizing it to INT8 and compiling it for the Hailo-8L NPU; the live scanner runs at ~88 FPS on the Pi.</li>
+                <li>Co-authored the final report covering system design, RF calibration against refractometer readings, and a cost analysis ($343 prototype, $120–150 projected at scale). <a href="https://danielbaez.xyz/research">Full profile →</a></li>
+            </ul>
         </div>
     </section>
 
@@ -272,8 +312,7 @@
     <section>
         <div class="section-title">Projects</div>
         <ul class="project-list">
-            <li><strong>Watermelon Ripeness Classifier</strong> — Designed and deployed an end-to-end computer vision pipeline on a Raspberry Pi 5 with Hailo-8L NPU to classify watermelon ripeness in real time; trained a custom CNN on a 2,700+ image dataset.</li>
-            <li><strong>Prototype AI Scheduling Assistant (Calendario)</strong> — Designed and prototyped an AI-powered personal assistant integrating with Google Calendar APIs to interpret natural language queries, surface relevant schedule information (today, tomorrow, upcoming events), and streamline calendar management through conversational automation.</li>
+            <li><strong>AI Scheduling Assistant (Calendario)</strong> — Building a conversational calendar assistant that sends each message through a Cohere model (Command R7B) for intent classification and detail extraction, then answers from Google Calendar and a linked read-only Microsoft 365 / Outlook calendar; supports “what's next” from the current time, free-time search, and personalized weekly-pattern summaries.</li>
             <li><strong>IoT Home Automation Bridge</strong> — Configure and manage a Raspberry Pi-based home bridge that connects multiple IoT devices to Apple HomeKit, enabling centralized control and home automation.</li>
         </ul>
     </section>
